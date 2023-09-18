@@ -12,7 +12,17 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className} style={{ background: 0, backgroundColor: 'rgba(36,36,36,1)' }}>
+      <body
+        style={{
+          background: 0,
+          backgroundColor: 'rgba(36,36,36,1)',
+          position: 'relative',
+          maxWidth: '900px',
+          display: 'flex',
+          flexDirection: 'column'
+        }}
+        className={inter.className}
+      >
         {children}
       </body>
     </html>

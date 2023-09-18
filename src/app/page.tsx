@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Header from './Header';
 import Introduce from './Introduce';
 import Skills from './Skills';
@@ -7,10 +6,7 @@ import Educations from './Educations';
 
 export default function Home() {
   return (
-    <div
-      style={{ position: 'relative', maxWidth: '900px', display: 'flex', flexDirection: 'column' }}
-      className="flex min-h-screen flex-col items-center"
-    >
+    <div className="flex min-h-screen flex-col items-center">
       <Header />
 
       <main className="pt-28 text-gray-300">
