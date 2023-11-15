@@ -37,7 +37,7 @@ export default function Skills() {
         transition: 'opacity 1.0s ease 0s;'
       }}
     >
-      <div className="font-bold text-4xl m-8">Skills</div>
+      <div className="font-bold text-4xl">Skills</div>
       <div>
         <ul className="list-disc marker:text-gray-500 text-xl">
           <li className="leading-7 m-4">
