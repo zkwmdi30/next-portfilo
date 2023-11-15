@@ -55,6 +55,24 @@ export default function Thewc() {
           </div>
         </section>
       </main>
+
+      <div className="mt-32">
+        <h1>* 소개 페이지</h1>
+        <a className="text-sky-300" href="https://cloudgate.thewc.co.kr/cloudgate" target="_blank">
+          https://cloudgate.thewc.co.kr/cloudgate
+        </a>
+      </div>
+
+      <div className="mt-32">
+        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1PH33qj0moeJCP4uungyklO3zdDYCGg7K=w4486-h3176-iv1" alt="콜 사진" />
+        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1HAWcnnaMP31gXgwAaiKXWjWmI9AD161i=w4486-h3176-iv1" alt="톡 사진" />
+        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1M3O5R0bLwmjN0WCH6SGQWpE0W2NKNCeL=w4486-h3176-iv1" alt="쇼핑몰 리스트" />
+        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/18zVVnL2mYnFaxjVx3mafhH2_btzbbua3=w4486-h3176-iv1" alt="톡 알림" />
+        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1z65nUgPeKgvEYA6ixOtJtXo1UG7afHO5=w4486-h3176-iv1" alt="톡 고객정보" />
+        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1XAKOYlKdIoLsXzvdfVRGJE7_NtZH-8_1=w4486-h3176-iv1" alt="톡 메일" />
+        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1DFfp0-KloNjc6beXl4g4BKk0uVZ6AUhX=w4486-h3176-iv1" alt="티켓" />
+        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/19A0k8DhHzbQ3Lfix5oOfVk_61iOeijed=w4486-h3176-iv1" alt="템플릿" />
+      </div>
     </div>
   );
 }
