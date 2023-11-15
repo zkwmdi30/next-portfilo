@@ -63,7 +63,7 @@ export default function Thewc() {
         </a>
       </div>
 
-      <div className="mt-32">
+      <div className="my-32">
         <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1PH33qj0moeJCP4uungyklO3zdDYCGg7K=w4486-h3176-iv1" alt="콜 사진" />
         <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1HAWcnnaMP31gXgwAaiKXWjWmI9AD161i=w4486-h3176-iv1" alt="톡 사진" />
         <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1M3O5R0bLwmjN0WCH6SGQWpE0W2NKNCeL=w4486-h3176-iv1" alt="쇼핑몰 리스트" />
