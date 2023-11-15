@@ -1,4 +1,6 @@
 import './globals.css';
+import Header from './Header';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -7,12 +9,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           background: 0,
           backgroundColor: 'rgba(36,36,36,1)',
           position: 'relative',
-          maxWidth: '900px',
           display: 'flex',
           flexDirection: 'column'
         }}
       >
-        {children}
+        <div className="flex min-h-screen flex-col items-center">
+          <Header />
+
+          {children}
+        </div>
       </body>
     </html>
   );
