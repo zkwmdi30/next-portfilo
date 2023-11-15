@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 
 export default function Thewc() {
   return (
@@ -63,15 +64,15 @@ export default function Thewc() {
         </a>
       </div>
 
-      <div className="my-32">
-        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1PH33qj0moeJCP4uungyklO3zdDYCGg7K=w4486-h3176-iv1" alt="콜 사진" />
-        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1HAWcnnaMP31gXgwAaiKXWjWmI9AD161i=w4486-h3176-iv1" alt="톡 사진" />
-        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1M3O5R0bLwmjN0WCH6SGQWpE0W2NKNCeL=w4486-h3176-iv1" alt="쇼핑몰 리스트" />
-        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/18zVVnL2mYnFaxjVx3mafhH2_btzbbua3=w4486-h3176-iv1" alt="톡 알림" />
-        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1z65nUgPeKgvEYA6ixOtJtXo1UG7afHO5=w4486-h3176-iv1" alt="톡 고객정보" />
-        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1XAKOYlKdIoLsXzvdfVRGJE7_NtZH-8_1=w4486-h3176-iv1" alt="톡 메일" />
-        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/1DFfp0-KloNjc6beXl4g4BKk0uVZ6AUhX=w4486-h3176-iv1" alt="티켓" />
-        <img className="mt-8 max-w-2xl" src="https://lh3.google.com/u/1/d/19A0k8DhHzbQ3Lfix5oOfVk_61iOeijed=w4486-h3176-iv1" alt="템플릿" />
+      <div className="relative w-full h-32 my-32">
+        <Image className="mt-8" src="/images/img_func_010101.png" layout="responsive" width={500} height={300} alt="고객정보" />
+        <Image className="mt-8" src="/images/img_func_010203.png" layout="responsive" width={500} height={300} alt="티켓" />
+        <Image className="mt-8" src="/images/img_func_010402.png" layout="responsive" width={500} height={300} alt="템플릿" />
+        <Image className="mt-8" src="/images/img_func_020101.png" layout="responsive" width={500} height={300} alt="콜" />
+        <Image className="mt-8" src="/images/img_func_020103.png" layout="responsive" width={500} height={300} alt="메일" />
+        <Image className="mt-8" src="/images/img_func_020201.png" layout="responsive" width={500} height={300} alt="톡" />
+        <Image className="mt-8" src="/images/img_func_020202.png" layout="responsive" width={500} height={300} alt="주문정보" />
+        <Image className="mt-8" src="/images/img_func_020203.png" layout="responsive" width={500} height={300} alt="알림" />
       </div>
     </div>
   );
