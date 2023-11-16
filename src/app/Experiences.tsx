@@ -66,7 +66,7 @@ export default function Skills() {
         </li>
         <li className="mt-12">
           <span className="text-4xl font-extrabold">마인드링크소프트</span>
-          <p className="text-gray-400">부대표(풀스택)</p>
+          <p className="text-gray-400">부대표 (풀스택)</p>
           <p className="text-gray-400">2018.04 ~ 2020.05</p>
           <Link href="/mindlinksoft">
             <button className="mt-4 w-24 h-12 rounded-xl bg-gray-400">자세히 보기</button>

@@ -7,7 +7,7 @@ export default function Minigate() {
       <main className="pt-28 text-gray-300">
         <section id="font-bold m-32 leading-normal">
           <div className="">
-            <h1 className="text-3xl font-bold text-center mb-6">미니게이트</h1>
+            <h1 className="text-3xl font-bold text-center mb-6">미니게이트 경력</h1>
             <div className="bg-white shadow-md rounded-lg p-6 text-gray-600">
               <h2 className="text-2xl font-semibold mb-4">플랫폼개발실 / 대리</h2>
               <p className="font-medium  mb-4">
