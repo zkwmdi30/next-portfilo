@@ -39,7 +39,10 @@ export default function Minigate() {
       </main>
 
       <div className="relative w-full h-32 my-32">
-        <Image className="mt-8" src="/images/12_1400.png" layout="responsive" width={500} height={300} alt="아스텔리아" />
+        <Image className="mt-8" src="/images/12_1.png" layout="responsive" width={500} height={300} alt="런쳐" />
+        <Image className="mt-8" src="/images/12_2.png" layout="responsive" width={500} height={300} alt="상점" />
+        <Image className="mt-8" src="/images/12_3.png" layout="responsive" width={500} height={300} alt="스팀" />
+        <Image className="mt-8" src="/images/12_4.png" layout="responsive" width={500} height={300} alt="쿠폰" />
       </div>
     </div>
   );

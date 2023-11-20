@@ -27,7 +27,10 @@ export default function Minigate() {
       </main>
 
       <div className="relative w-full h-32 my-32">
-        <Image className="mt-8" src="/images/13_1400.png" layout="responsive" width={500} height={300} alt="고객정보" />
+        <Image className="mt-8" src="/images/13_1.jpg" layout="responsive" width={500} height={300} alt="메인화면" />
+        <Image className="mt-8" src="/images/13_2.jpg" layout="responsive" width={500} height={300} alt="강의화면" />
+        <Image className="mt-8" src="/images/13_3.jpg" layout="responsive" width={500} height={300} alt="문제화면" />
+        <Image className="mt-8" src="/images/13_4.png" layout="responsive" width={500} height={300} alt="녹음화면" />
       </div>
     </div>
   );
