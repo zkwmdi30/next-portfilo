@@ -30,17 +30,17 @@ export default function Skills() {
 
   return (
     <section
-      className="m-20"
+      className="m-12 md:m-20"
       ref={elementRef}
       style={{
         opacity: isVisible ? 1 : 0,
         transition: 'opacity 1.0s ease 0s;'
       }}
     >
-      <ul className="list-disc marker:text-gray-500 text-xl leading-10">
+      <ul className="list-disc marker:text-gray-500 text-lg md:text-xl leading-5 md:leading-10 tracking-tighter md:tracking-normal">
         <li className="my-4">
           <b>다양한 기술 스펙을 깊이 이해합니다.</b>
-          <div className="text-sm">
+          <div className="text-sm tracking-normal">
             클라우드 인프라와 최적화에 대한 전문 지식을 바탕으로 AWS와 네이버 클라우드 플랫폼을 활용하여 효율적인 시스템을 구축합니다.
           </div>
         </li>

@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function Minigate() {
   return (
     <div className="flex min-h-screen flex-col items-center">
-      <main className="pt-28 text-gray-300">
+      <main className="pt-28 text-gray-300 mx-4">
         <section id="font-bold m-32 leading-normal">
           <div className="">
             <h1 className="text-3xl font-bold text-center mb-6">스튜디오8 경력</h1>

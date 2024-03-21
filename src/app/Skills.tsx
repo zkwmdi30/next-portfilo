@@ -30,16 +30,16 @@ export default function Skills() {
 
   return (
     <section
-      className="m-20 "
+      className="m-8 md:m-20"
       ref={elementRef}
       style={{
         opacity: isVisible ? 1 : 0,
         transition: 'opacity 1.0s ease 0s;'
       }}
     >
-      <div className="font-bold text-4xl">Skills</div>
+      <div className="font-bold text-2xl md:text-4xl">Skills</div>
       <div>
-        <ul className="list-disc marker:text-gray-500 text-xl">
+        <ul className="list-disc marker:text-gray-500 text-lg md:text-xl">
           <li className="leading-7 m-4">
             <span className="text-yellow-500">Javascript</span> 와 <span className="text-yellow-500">Vue.js</span> 에 익숙합니다.
           </li>

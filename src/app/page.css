@@ -1,15 +1,18 @@
 .image-container {
-  width: 60px;
-  height: 60px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-mask-image: radial-gradient(circle, white 0%, transparent 50%);
+  mask-image: radial-gradient(circle, white 0%, transparent 70%); /* 중앙에서 투명도가 증가 */
+
 }
 
 .image-container img {
-  height: 60px;
-  width: 60px;
+  height: 200px;
+  width: 200px;
   object-fit: cover;
 }

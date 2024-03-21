@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function Thewc() {
   return (
     <div className="flex min-h-screen flex-col items-center">
-      <main className="pt-28 text-gray-300">
+      <main className="pt-28 text-gray-300 mx-4">
         <section id="font-bold m-32 leading-normal">
           <div className="">
             <h1 className="text-3xl font-bold text-center mb-6">
@@ -71,7 +71,7 @@ export default function Thewc() {
       <div className="mt-32">
         <h1 className="w-fit mx-auto">T-ID 공식 포털 유지보수 수행</h1>
         <div className="mt-8">
-          <iframe src="https://t-id.co.kr" width={500} height={800}></iframe>
+          <iframe src="https://t-id.co.kr" width={500} height={800} className="hidden md:block"></iframe>
         </div>
       </div>
 
