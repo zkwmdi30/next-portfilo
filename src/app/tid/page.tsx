@@ -1,8 +1,76 @@
 "use client";
 import { useEffect, useState, useRef } from "react";
-import Image from "next/image";
+import ModalImage from "../../components/modalImage";
+import { ModalAlert } from "../../components/modalAlert";
 
 export default function Thewc() {
+  const [modalOpen, setModalOpen] = useState(false); // 모달 열기/닫기 상태 관리
+  const [selectedImage, setSelectedImage] = useState(""); // 선택된 이미지 URL 관리
+
+  // 이미지를 클릭할 때 모달 열고 해당 이미지의 URL 설정
+  const handleImageClick = (url: string) => {
+    setSelectedImage(url);
+    setModalOpen(true);
+  };
+
+  // 모달 닫기 핸들러
+  const closeModal = () => {
+    setModalOpen(false);
+    setSelectedImage(""); // 선택된 이미지 URL 초기화
+  };
+
+  const tidDataSet = [
+    {
+      url: "/images/tid/tid1.png",
+      alt: "tid 메인",
+    },
+    {
+      url: "/images/tid/tid2.png",
+      alt: "tid 메인",
+    },
+
+    {
+      url: "/images/tid/tid3.png",
+      alt: "tid 메인",
+    },
+    {
+      url: "/images/tid/tid4.png",
+      alt: "tid 메인",
+    },
+
+    {
+      url: "/images/tid/tid5.png",
+      alt: "tid 메인",
+    },
+    {
+      url: "/images/tid/tid6.png",
+      alt: "tid 메인",
+    },
+  ];
+
+  const adotDataSet = [
+    {
+      url: "/images/tid/adot1.png",
+      alt: "adot 메인",
+    },
+    {
+      url: "/images/tid/adot2.png",
+      alt: "adot 메인",
+    },
+    {
+      url: "/images/tid/adot3.png",
+      alt: "adot 메인",
+    },
+    {
+      url: "/images/tid/adot4.png",
+      alt: "adot 메인",
+    },
+    {
+      url: "/images/tid/adot5.png",
+      alt: "adot 메인",
+    },
+  ];
+
   return (
     <div className="flex min-h-screen flex-col items-center">
       <main className="pt-28 text-gray-300 mx-4">
@@ -60,7 +128,9 @@ export default function Thewc() {
                   표시 등 수행
                 </li>
                 <li>웹뷰 기반 모바일 프론트엔드 개발 수행 (딥링크등)</li>
-                <li>Vue 3.0 및 Nuxt.js 마이그레이션 프로젝트 수행</li>
+                <li>
+                  Vue 3.0 및 Nuxt.js (Typescript) 마이그레이션 프로젝트 수행
+                </li>
                 <li>Jenkins 배포 라인 수정</li>
               </ul>
             </div>
@@ -71,7 +141,12 @@ export default function Thewc() {
       <div className="mt-32">
         <h1 className="w-fit mx-auto">T-ID 공식 포털 유지보수 수행</h1>
         <div className="mt-8">
-          <iframe src="https://t-id.co.kr" width={500} height={800} className="hidden md:block"></iframe>
+          <iframe
+            src="https://t-id.co.kr"
+            width={500}
+            height={800}
+            className="hidden md:block"
+          ></iframe>
         </div>
       </div>
 
@@ -83,54 +158,13 @@ export default function Thewc() {
           <h1 className="w-12 mx-auto font-semibold text-lg bg-gradient-to-r from-yellow-300 via-red-600 text-transparent bg-clip-text">
             T-ID
           </h1>
-          <Image
-            className="mt-8"
-            src="/images/tid/tid1.png"
-            layout="responsive"
-            width={500}
-            height={300}
-            alt="tid 메인"
-          />
-          <Image
-            className="mt-8"
-            src="/images/tid/tid2.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
-          <Image
-            className="mt-8"
-            src="/images/tid/tid3.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
-          <Image
-            className="mt-8"
-            src="/images/tid/tid4.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
-          <Image
-            className="mt-8"
-            src="/images/tid/tid5.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
-          <Image
-            className="mt-8"
-            src="/images/tid/tid6.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
+          {tidDataSet.map((data) => (
+            <ModalImage
+              url={data.url}
+              alt={data.alt}
+              handleImageClick={handleImageClick}
+            />
+          ))}
         </div>
         <div
           className="w-72 p-8 border-white border-2 border rounded-lg"
@@ -139,48 +173,17 @@ export default function Thewc() {
           <h1 className="mr-16 w-12 mx-auto font-semibold text-lg bg-gradient-to-r from-blue-300 via-white to-blue-400 text-transparent bg-clip-text">
             A.
           </h1>
-          <Image
-            className="mt-8"
-            src="/images/tid/adot1.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
-          <Image
-            className="mt-8"
-            src="/images/tid/adot2.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
-          <Image
-            className="mt-8"
-            src="/images/tid/adot3.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
-          <Image
-            className="mt-8"
-            src="/images/tid/adot4.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
-          <Image
-            className="mt-8"
-            src="/images/tid/adot5.png"
-            layout="responsive"
-            width={200}
-            height={300}
-            alt="tid 메인"
-          />
+          {adotDataSet.map((data) => (
+            <ModalImage
+              url={data.url}
+              alt={data.alt}
+              handleImageClick={handleImageClick}
+            />
+          ))}
         </div>
       </div>
+
+      {modalOpen && <ModalAlert url={selectedImage} closeModal={closeModal} />}
     </div>
   );
 }

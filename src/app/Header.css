@@ -1,4 +1,4 @@
-@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+@import url("https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css");
 
 .change_header {
   position: fixed;
@@ -7,7 +7,7 @@
   top: 0;
   right: 0;
   left: 0;
-  z-index: 2000;
+  z-index: 40;
   width: 100%;
   border-radius: 0;
   border-width: 0 0 1px 0;
