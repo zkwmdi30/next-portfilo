@@ -9,7 +9,7 @@ export const ModalAlert = ({
 }) => (
   <div className="fixed inset-0 flex items-center justify-center z-50">
     <div
-      className="absolute inset-0 bg-black opacity-25"
+      className="absolute inset-0 bg-black bg-opacity-25 backdrop-blur-md"
       onClick={closeModal}
     ></div>
 
