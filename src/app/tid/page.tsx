@@ -158,11 +158,12 @@ export default function Thewc() {
           <h1 className="w-12 mx-auto font-semibold text-lg bg-gradient-to-r from-yellow-300 via-red-600 text-transparent bg-clip-text">
             T-ID
           </h1>
-          {tidDataSet.map((data) => (
+          {tidDataSet.map((data, index) => (
             <ModalImage
               url={data.url}
               alt={data.alt}
               handleImageClick={handleImageClick}
+              key={index}
             />
           ))}
         </div>
@@ -173,11 +174,12 @@ export default function Thewc() {
           <h1 className="mr-16 w-12 mx-auto font-semibold text-lg bg-gradient-to-r from-blue-300 via-white to-blue-400 text-transparent bg-clip-text">
             A.
           </h1>
-          {adotDataSet.map((data) => (
+          {adotDataSet.map((data, index) => (
             <ModalImage
               url={data.url}
               alt={data.alt}
               handleImageClick={handleImageClick}
+              key={index}
             />
           ))}
         </div>

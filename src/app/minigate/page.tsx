@@ -67,11 +67,12 @@ export default function Minigate() {
       </main>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-3/4 h-32 my-32">
-        {dataSet.map((data) => (
+        {dataSet.map((data, index) => (
           <ModalImage
             url={data.url}
             alt={data.alt}
             handleImageClick={handleImageClick}
+            key={index}
           />
         ))}
       </div>
