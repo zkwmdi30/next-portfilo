@@ -4,7 +4,8 @@ import Header from "./Header";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      "https://myungpil-ai-technical-pm.lee-choi-family.chatgpt.site"
   ),
   title: {
     default: "이명필 · AI Technical PM & Full-stack Engineer",
