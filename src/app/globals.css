@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
   --paper: #f2f1ea;
   --paper-bright: #fbfaf5;
