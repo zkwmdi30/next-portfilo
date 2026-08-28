@@ -12,6 +12,16 @@ export type CaseStudy = {
   context: string[];
   problems: Array<{ title: string; body: string }>;
   architecture: Array<{ name: string; detail: string }>;
+  proof: {
+    title: string;
+    summary: string;
+    flow: Array<{ title: string; detail: string }>;
+    facts: Array<{ value: string; label: string }>;
+    benchmark?: {
+      caption: string;
+      items: Array<{ label: string; value: string; relative: number; highlight?: boolean }>;
+    };
+  };
   decisions: Array<{
     index: string;
     title: string;
@@ -77,6 +87,29 @@ export const caseStudies: CaseStudy[] = [
       { name: "Delivery", detail: "GitLab CI · Harbor · Argo CD · SBOM" },
       { name: "Runtime", detail: "Kubernetes · Istio · Vault · Phoenix" },
     ],
+    proof: {
+      title: "병목을 측정하고 대체 경로를 만들었습니다.",
+      summary:
+        "슈퍼바이저가 요청을 계획하고 여러 에이전트를 실행한 뒤 리뷰하는 구조와, 실제 동일 문서를 기준으로 검증한 Document Insight 성능을 함께 보여줍니다.",
+      flow: [
+        { title: "Intent & Plan", detail: "요청 의도 파악과 실행 계획 수립" },
+        { title: "Route", detail: "프롬프트에 등록된 에이전트로 라우팅" },
+        { title: "Execute", detail: "약 12개 서브 에이전트 중 복수 실행" },
+        { title: "Review", detail: "결과 검토·재시도 후 컨텍스트 요약" },
+      ],
+      facts: [
+        { value: "12", label: "연결된 서브 에이전트" },
+        { value: "5회", label: "슈퍼바이저 실행 상한" },
+        { value: "3—10", label: "VLM 질의 병렬 옵션" },
+      ],
+      benchmark: {
+        caption: "동일 7.22MB · 380페이지 PDF 처리 시간",
+        items: [
+          { label: "SKT Document Insight", value: "59m 47s", relative: 100 },
+          { label: "자체 Document Insight", value: "38m 57.9s", relative: 65.2, highlight: true },
+        ],
+      },
+    },
     decisions: [
       {
         index: "D1",
@@ -175,6 +208,22 @@ export const caseStudies: CaseStudy[] = [
       { name: "Payment", detail: "KG이니시스 · 크레딧 원장" },
       { name: "Event", detail: "REST API · Kafka" },
     ],
+    proof: {
+      title: "여러 번 개선하지 않고, 한 번 병렬 생성해 잘 선택했습니다.",
+      summary:
+        "사용자가 고른 모델들을 동시에 호출하고 품질 점수가 가장 높은 모델이 Evaluator 역할을 맡습니다. 반복 생성 대신 선택 구조로 응답 비용과 대기 시간을 통제했습니다.",
+      flow: [
+        { title: "Select", detail: "약 30개 모델 중 1~5개 선택" },
+        { title: "Parallel Call", detail: "OpenAI · Claude · Gemini 동시 요청" },
+        { title: "Evaluate", detail: "내부 점수 기반 최상위 모델이 답변 선택" },
+        { title: "Meter", detail: "실제 token 비용을 크레딧에서 차감" },
+      ],
+      facts: [
+        { value: "1—5", label: "사용자 선택 병렬 호출" },
+        { value: "5s", label: "일반 timeout 기준" },
+        { value: "+1—2s", label: "최종 선택 추가 시간" },
+      ],
+    },
     decisions: [
       {
         index: "D1",

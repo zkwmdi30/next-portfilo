@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
@@ -109,8 +110,54 @@ export default function WorkDetail({ params }: PageProps) {
         </div>
       </section>
 
+      <section className="case-section shell case-proof" aria-labelledby="proof-title">
+        <div className="case-section__label"><span>03</span> System proof</div>
+        <div className="case-section__content">
+          <h2 id="proof-title">{study.proof.title}</h2>
+          <p className="case-prose">{study.proof.summary}</p>
+
+          <ol className="proof-flow" aria-label="시스템 실행 흐름">
+            {study.proof.flow.map((step, index) => (
+              <li key={step.title}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <strong>{step.title}</strong>
+                <small>{step.detail}</small>
+              </li>
+            ))}
+          </ol>
+
+          <div className={`proof-grid${study.proof.benchmark ? "" : " proof-grid--facts-only"}`}>
+            {study.proof.benchmark && (
+              <figure className="benchmark">
+                <figcaption>{study.proof.benchmark.caption}</figcaption>
+                <div className="benchmark__items">
+                  {study.proof.benchmark.items.map((item) => (
+                    <div className={item.highlight ? "benchmark__item benchmark__item--highlight" : "benchmark__item"} key={item.label}>
+                      <div><span>{item.label}</span><strong>{item.value}</strong></div>
+                      <div className="benchmark__track" aria-hidden="true">
+                        <span style={{ "--bar-width": `${item.relative}%` } as CSSProperties} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <p>자체 구현으로 처리 시간을 34.8% 단축했습니다.</p>
+              </figure>
+            )}
+
+            <dl className="proof-facts">
+              {study.proof.facts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+
       <section className="case-section shell" aria-labelledby="decisions-title">
-        <div className="case-section__label"><span>03</span> Decisions</div>
+        <div className="case-section__label"><span>04</span> Decisions</div>
         <div className="case-section__content">
           <h2 id="decisions-title">문제보다 판단을 기록합니다.</h2>
           <div className="decision-list">
@@ -132,7 +179,7 @@ export default function WorkDetail({ params }: PageProps) {
       </section>
 
       <section className="case-section shell" aria-labelledby="ownership-title">
-        <div className="case-section__label"><span>04</span> Ownership</div>
+        <div className="case-section__label"><span>05</span> Ownership</div>
         <div className="case-section__content ownership-grid">
           <div>
             <h2 id="ownership-title">제가 책임진 범위</h2>
