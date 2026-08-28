@@ -4,14 +4,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
 
-type PageProps = { params: { slug: string } };
+type PageProps = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return caseStudies.map((study) => ({ slug: study.slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const study = getCaseStudy(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const study = getCaseStudy(slug);
   if (!study) return {};
 
   return {
@@ -31,8 +32,9 @@ export function generateMetadata({ params }: PageProps): Metadata {
   };
 }
 
-export default function WorkDetail({ params }: PageProps) {
-  const study = getCaseStudy(params.slug);
+export default async function WorkDetail({ params }: PageProps) {
+  const { slug } = await params;
+  const study = getCaseStudy(slug);
   if (!study) notFound();
 
   const currentIndex = caseStudies.findIndex((item) => item.slug === study.slug);
