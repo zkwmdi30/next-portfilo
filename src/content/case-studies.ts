@@ -39,11 +39,11 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "enterprise-ax",
     title: "계열사 A.X 전환",
-    eyebrow: "Enterprise AI Transformation",
+    eyebrow: "기업 AI 업무 전환",
     lead:
       "삼성제약과 젬백스앤카엘의 수기·분산 업무를 AI 기반 시스템으로 전환한 20억 원 규모 프로젝트입니다.",
     period: "2026.04 — 2026.08",
-    role: "Tech Leader",
+    role: "기술 리더",
     team: "전체 16명 · 개발자 10명",
     scale: "약 20억 원",
     tags: ["LangGraph", "FastAPI", "Kubernetes", "Keycloak", "Istio", "Argo CD"],
@@ -55,7 +55,7 @@ export const caseStudies: CaseStudy[] = [
       },
       { value: "12", label: "슈퍼바이저 연결 서브 에이전트", detail: "계획 기반 복수 실행" },
       { value: "70%", label: "테스트 커버리지", detail: "하네스와 CI/CD 추적" },
-      { value: "9m 16s", label: "배포 파이프라인", detail: "테스트·이미지·SBOM 포함" },
+      { value: "9분 16초", label: "배포 파이프라인", detail: "테스트·이미지·SBOM 포함" },
     ],
     context: [
       "영업 관련 요청과 정보는 카카오톡, 이메일 등 여러 채널로 들어왔고 담당자가 이를 수기로 취합해야 했습니다. 채널에서 받은 데이터는 다시 Excel로 정리해 월별로 저장했으며, 흡수율과 이상치는 별도 프로그램을 실행한 뒤 육안으로 비교했습니다.",
@@ -79,23 +79,23 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     architecture: [
-      { name: "Experience", detail: "Vue · React · 통합 챗봇 · 문서함" },
-      { name: "Application", detail: "Python · FastAPI · LangGraph Supervisor" },
-      { name: "AI Platform", detail: "Agent Gateway · Model Gateway · Knowledge" },
-      { name: "Data", detail: "PostgreSQL · Milvus · OpenSearch · Airflow" },
-      { name: "Identity", detail: "Keycloak · UMA · Policy · Permission" },
-      { name: "Delivery", detail: "GitLab CI · Harbor · Argo CD · SBOM" },
-      { name: "Runtime", detail: "Kubernetes · Istio · Vault · Phoenix" },
+      { name: "사용자 화면", detail: "Vue · React · 통합 챗봇 · 문서함" },
+      { name: "애플리케이션", detail: "Python · FastAPI · LangGraph 슈퍼바이저" },
+      { name: "AI 플랫폼", detail: "Agent Gateway · Model Gateway · Knowledge" },
+      { name: "데이터", detail: "PostgreSQL · Milvus · OpenSearch · Airflow" },
+      { name: "인증과 권한", detail: "Keycloak · UMA · 정책 · 권한" },
+      { name: "배포", detail: "GitLab CI · Harbor · Argo CD · SBOM" },
+      { name: "실행 환경", detail: "Kubernetes · Istio · Vault · Phoenix" },
     ],
     proof: {
       title: "병목을 측정하고 대체 경로를 만들었습니다.",
       summary:
         "슈퍼바이저가 요청을 계획하고 여러 에이전트를 실행한 뒤 리뷰하는 구조와, 실제 동일 문서를 기준으로 검증한 Document Insight 성능을 함께 보여줍니다.",
       flow: [
-        { title: "Intent & Plan", detail: "요청 의도 파악과 실행 계획 수립" },
-        { title: "Route", detail: "프롬프트에 등록된 에이전트로 라우팅" },
-        { title: "Execute", detail: "약 12개 서브 에이전트 중 복수 실행" },
-        { title: "Review", detail: "결과 검토·재시도 후 컨텍스트 요약" },
+        { title: "의도 파악과 계획", detail: "요청 의도 파악과 실행 계획 수립" },
+        { title: "에이전트 선택", detail: "프롬프트에 등록된 에이전트로 라우팅" },
+        { title: "실행", detail: "약 12개 서브 에이전트 중 복수 실행" },
+        { title: "결과 검토", detail: "결과 검토·재시도 후 컨텍스트 요약" },
       ],
       facts: [
         { value: "12", label: "연결된 서브 에이전트" },
@@ -105,14 +105,14 @@ export const caseStudies: CaseStudy[] = [
       benchmark: {
         caption: "동일 7.22MB · 380페이지 PDF 처리 시간",
         items: [
-          { label: "SKT Document Insight", value: "59m 47s", relative: 100 },
-          { label: "자체 Document Insight", value: "38m 57.9s", relative: 65.2, highlight: true },
+          { label: "SKT Document Insight", value: "59분 47초", relative: 100 },
+          { label: "자체 Document Insight", value: "38분 57.9초", relative: 65.2, highlight: true },
         ],
       },
     },
     decisions: [
       {
-        index: "D1",
+        index: "01",
         title: "A.X Agent Builder를 버리지 않고 확장했습니다.",
         situation:
           "Agent Builder만으로는 스스로 계획하고 반복 실행하며 여러 업무를 조율하는 통합 챗봇을 구성하기 어려웠습니다.",
@@ -122,7 +122,7 @@ export const caseStudies: CaseStudy[] = [
           "플랫폼 활용이라는 사업 요구를 지키면서 오케스트레이션 자유도를 얻는 대신, 두 실행 환경 사이의 상태와 오류를 함께 관리해야 했습니다.",
       },
       {
-        index: "D2",
+        index: "02",
         title: "외부 SaaS 대신 자체 Document Insight를 만들었습니다.",
         situation:
           "기존 DI는 느렸고 Azure Document Intelligence는 추가 비용과 외부 데이터 전송이라는 제약이 있었습니다.",
@@ -132,7 +132,7 @@ export const caseStudies: CaseStudy[] = [
           "문서는 VLM 한계로 한 번에 하나씩 처리하지만, 동일 데이터 처리 시간을 59분 47초에서 38분 57.9초로 줄였습니다.",
       },
       {
-        index: "D3",
+        index: "03",
         title: "기술 지원을 기다리기보다 설정을 역추적했습니다.",
         situation:
           "상세 설치 문서 없이 이미지 저장소를 전달받아 기존 Keycloak 설정과 권한 모델을 알 수 없었습니다.",
@@ -164,18 +164,18 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "multi-llm",
     title: "Multi-LLM 솔루션",
-    eyebrow: "Zero-to-One AI Product",
+    eyebrow: "AI 제품 기획부터 출시까지",
     lead:
       "회사의 AI 역량을 실제 제품으로 증명하기 위해, 아이디어 단계부터 가입·결제가 가능한 Multi-LLM 웹 서비스를 출시했습니다.",
     period: "2026.01 — 2026.04",
-    role: "PM · Architect · Lead Developer",
+    role: "PM · 아키텍처 설계 · 핵심 개발",
     team: "본인 포함 4명 개발팀",
-    scale: "0 → 1 Product",
+    scale: "아이디어 → 출시",
     tags: ["OpenAI", "Claude", "Gemini", "MSA", "Kafka", "Keycloak", "KG이니시스"],
     metrics: [
       { value: "~30", label: "선택 가능한 AI 모델", detail: "3개 모델 패밀리" },
       { value: "1—5", label: "동시 병렬 모델 호출", detail: "사용자 선택" },
-      { value: "3 mo.", label: "기획부터 출시까지", detail: "2026.03.27 출시" },
+      { value: "3개월", label: "기획부터 출시까지", detail: "2026.03.27 출시" },
       { value: "다수", label: "AI 사업 제안 활용", detail: "출시 후 지속 활용" },
     ],
     context: [
@@ -191,62 +191,62 @@ export const caseStudies: CaseStudy[] = [
       {
         title: "모델의 품질과 스타일 편향",
         body:
-          "OpenAI, Claude, Gemini 계열 약 30개 모델 중 1~5개를 병렬 호출하고 Evaluator가 최종 답변 하나를 선택하도록 구성했습니다.",
+          "OpenAI, Claude, Gemini 계열 약 30개 모델 중 1~5개를 병렬 호출하고 평가 모델이 최종 답변 하나를 선택하도록 구성했습니다.",
       },
       {
         title: "처음 구축하는 결제와 크레딧",
         body:
-          "KG이니시스 단건 결제를 연동하고 실제 token 비용을 크레딧으로 차감하는 유료 서비스 구조를 설계했습니다.",
+          "KG이니시스 단건 결제를 연동하고 실제 토큰 비용을 크레딧으로 차감하는 유료 서비스 구조를 설계했습니다.",
       },
     ],
     architecture: [
-      { name: "Identity", detail: "Keycloak · UMA" },
-      { name: "Gateway", detail: "외부 요청 진입점과 라우팅" },
-      { name: "Platform", detail: "웹 제품 공통 기능" },
-      { name: "Agent", detail: "AI 작업과 파일 생성" },
-      { name: "LLM Core", detail: "모델 연결 · 병렬 호출 · 비용 계산" },
-      { name: "Payment", detail: "KG이니시스 · 크레딧 원장" },
-      { name: "Event", detail: "REST API · Kafka" },
+      { name: "인증과 사용자", detail: "Keycloak · UMA" },
+      { name: "게이트웨이", detail: "외부 요청 진입점과 라우팅" },
+      { name: "플랫폼", detail: "웹 제품 공통 기능" },
+      { name: "에이전트", detail: "AI 작업과 파일 생성" },
+      { name: "LLM 코어", detail: "모델 연결 · 병렬 호출 · 비용 계산" },
+      { name: "결제", detail: "KG이니시스 · 크레딧 원장" },
+      { name: "이벤트", detail: "REST API · Kafka" },
     ],
     proof: {
       title: "여러 번 개선하지 않고, 한 번 병렬 생성해 잘 선택했습니다.",
       summary:
-        "사용자가 고른 모델들을 동시에 호출하고 품질 점수가 가장 높은 모델이 Evaluator 역할을 맡습니다. 반복 생성 대신 선택 구조로 응답 비용과 대기 시간을 통제했습니다.",
+        "사용자가 고른 모델들을 동시에 호출하고 품질 점수가 가장 높은 모델이 평가 역할을 맡습니다. 반복 생성 대신 선택 구조로 응답 비용과 대기 시간을 통제했습니다.",
       flow: [
-        { title: "Select", detail: "약 30개 모델 중 1~5개 선택" },
-        { title: "Parallel Call", detail: "OpenAI · Claude · Gemini 동시 요청" },
-        { title: "Evaluate", detail: "내부 점수 기반 최상위 모델이 답변 선택" },
-        { title: "Meter", detail: "실제 token 비용을 크레딧에서 차감" },
+        { title: "모델 선택", detail: "약 30개 모델 중 1~5개 선택" },
+        { title: "병렬 호출", detail: "OpenAI · Claude · Gemini 동시 요청" },
+        { title: "답변 평가", detail: "내부 점수 기반 최상위 모델이 답변 선택" },
+        { title: "사용량 정산", detail: "실제 토큰 비용을 크레딧에서 차감" },
       ],
       facts: [
         { value: "1—5", label: "사용자 선택 병렬 호출" },
-        { value: "5s", label: "일반 timeout 기준" },
-        { value: "+1—2s", label: "최종 선택 추가 시간" },
+        { value: "5초", label: "일반 제한 시간" },
+        { value: "+1—2초", label: "최종 선택 추가 시간" },
       ],
     },
     decisions: [
       {
-        index: "D1",
+        index: "01",
         title: "더 많이 생성하기보다 한 번 잘 선택했습니다.",
         situation:
-          "반복 개선은 결과를 높일 수 있지만 output token과 사용자의 대기 비용도 함께 늘어납니다.",
+          "반복 개선은 결과를 높일 수 있지만 출력 토큰과 사용자의 대기 비용도 함께 늘어납니다.",
         decision:
-          "선택한 1~5개 모델을 한 번 병렬 호출하고, 내부 품질 점수가 가장 높은 모델이 Evaluator가 되어 최종 답변을 선택하게 했습니다.",
+          "선택한 1~5개 모델을 한 번 병렬 호출하고, 내부 품질 점수가 가장 높은 평가 모델이 최종 답변을 선택하게 했습니다.",
         tradeoff:
           "반복 개선은 포기했지만 비용 예측 가능성과 응답 속도를 확보하고, 사용자에게 모델 선택권을 제공했습니다.",
       },
       {
-        index: "D2",
+        index: "02",
         title: "크레딧을 사용자보다 결제 도메인에 두었습니다.",
         situation:
           "크레딧은 사용자 잔액인 동시에 구매·취소·환불과 함께 움직이는 금전성 자산이었습니다.",
         decision:
-          "사용자 원장은 Keycloak이 소유하게 두고, 애플리케이션이 통제해야 하는 크레딧은 Payment 도메인이 책임지도록 경계를 정했습니다.",
+          "사용자 원장은 Keycloak이 소유하게 두고, 애플리케이션이 통제해야 하는 크레딧은 결제 도메인이 책임지도록 경계를 정했습니다.",
         tradeoff:
           "사용자 조회 시 서비스 간 통신이 필요하지만 결제와 크레딧의 정합성 책임은 한 도메인에 모을 수 있었습니다.",
       },
       {
-        index: "D3",
+        index: "03",
         title: "상시 운영보다 제안 자산으로 전환했습니다.",
         situation:
           "제품은 출시됐지만 외부 활성 사용자와 매출을 확보하지 못했습니다.",
@@ -259,7 +259,7 @@ export const caseStudies: CaseStudy[] = [
     ownership: [
       "제품 상세 기획과 사용자 흐름 정의",
       "MSA 도메인 경계와 전체 아키텍처 설계",
-      "Multi-LLM 오케스트레이션과 Evaluator 구조 설계",
+      "Multi-LLM 오케스트레이션과 평가 모델 구조 설계",
       "개발자 3명 업무 리딩과 핵심 기능 구현",
       "AI로 생성한 UI 디자인 검토와 수정",
       "가입·결제·크레딧을 포함한 출시 추진",

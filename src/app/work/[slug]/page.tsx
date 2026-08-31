@@ -44,21 +44,21 @@ export default async function WorkDetail({ params }: PageProps) {
     <main id="main-content" className={`case case--${study.accent}`}>
       <section className="case-hero shell">
         <div className="case-hero__topline">
-          <Link href="/#work">← Selected work</Link>
+          <Link href="/#work">← 대표 프로젝트</Link>
           <span>{study.eyebrow}</span>
         </div>
 
         <div className="case-hero__grid">
           <div>
-            <p className="eyebrow">Case study</p>
+            <p className="eyebrow">프로젝트 상세</p>
             <h1>{study.title}</h1>
             <p className="case-hero__lead">{study.lead}</p>
           </div>
           <dl className="case-facts">
-            <div><dt>Period</dt><dd>{study.period}</dd></div>
-            <div><dt>Role</dt><dd>{study.role}</dd></div>
-            <div><dt>Team</dt><dd>{study.team}</dd></div>
-            <div><dt>Scale</dt><dd>{study.scale}</dd></div>
+            <div><dt>기간</dt><dd>{study.period}</dd></div>
+            <div><dt>역할</dt><dd>{study.role}</dd></div>
+            <div><dt>팀</dt><dd>{study.team}</dd></div>
+            <div><dt>규모</dt><dd>{study.scale}</dd></div>
           </dl>
         </div>
 
@@ -78,7 +78,7 @@ export default async function WorkDetail({ params }: PageProps) {
       </section>
 
       <section className="case-section shell case-context" aria-labelledby="context-title">
-        <div className="case-section__label"><span>01</span> Context</div>
+        <div className="case-section__label"><span>01</span> 프로젝트 배경</div>
         <div className="case-section__content">
           <h2 id="context-title">프로젝트가 시작된 이유</h2>
           {study.context.map((paragraph) => <p className="case-prose" key={paragraph}>{paragraph}</p>)}
@@ -96,7 +96,7 @@ export default async function WorkDetail({ params }: PageProps) {
 
       <section className="case-section case-section--dark" aria-labelledby="architecture-title">
         <div className="shell case-section__inner">
-          <div className="case-section__label"><span>02</span> Architecture</div>
+          <div className="case-section__label"><span>02</span> 시스템 구조</div>
           <div className="case-section__content">
             <h2 id="architecture-title">기술을 제품의 경계로 나눴습니다.</h2>
             <div className="architecture-map">
@@ -113,7 +113,7 @@ export default async function WorkDetail({ params }: PageProps) {
       </section>
 
       <section className="case-section shell case-proof" aria-labelledby="proof-title">
-        <div className="case-section__label"><span>03</span> System proof</div>
+        <div className="case-section__label"><span>03</span> 실행과 검증</div>
         <div className="case-section__content">
           <h2 id="proof-title">{study.proof.title}</h2>
           <p className="case-prose">{study.proof.summary}</p>
@@ -159,7 +159,7 @@ export default async function WorkDetail({ params }: PageProps) {
       </section>
 
       <section className="case-section shell" aria-labelledby="decisions-title">
-        <div className="case-section__label"><span>04</span> Decisions</div>
+        <div className="case-section__label"><span>04</span> 핵심 판단</div>
         <div className="case-section__content">
           <h2 id="decisions-title">문제보다 판단을 기록합니다.</h2>
           <div className="decision-list">
@@ -169,9 +169,9 @@ export default async function WorkDetail({ params }: PageProps) {
                 <div>
                   <h3>{decision.title}</h3>
                   <dl>
-                    <div><dt>Situation</dt><dd>{decision.situation}</dd></div>
-                    <div><dt>Decision</dt><dd>{decision.decision}</dd></div>
-                    <div><dt>Trade-off</dt><dd>{decision.tradeoff}</dd></div>
+                    <div><dt>상황</dt><dd>{decision.situation}</dd></div>
+                    <div><dt>선택</dt><dd>{decision.decision}</dd></div>
+                    <div><dt>감수한 점</dt><dd>{decision.tradeoff}</dd></div>
                   </dl>
                 </div>
               </article>
@@ -181,7 +181,7 @@ export default async function WorkDetail({ params }: PageProps) {
       </section>
 
       <section className="case-section shell" aria-labelledby="ownership-title">
-        <div className="case-section__label"><span>05</span> Ownership</div>
+        <div className="case-section__label"><span>05</span> 기여 범위</div>
         <div className="case-section__content ownership-grid">
           <div>
             <h2 id="ownership-title">제가 책임진 범위</h2>
@@ -190,7 +190,7 @@ export default async function WorkDetail({ params }: PageProps) {
             </ul>
           </div>
           <div className="outcome-panel">
-            <p className="eyebrow">Outcomes</p>
+            <p className="eyebrow">주요 결과</p>
             <ul>
               {study.outcomes.map((item) => <li key={item}>{item}</li>)}
             </ul>
@@ -201,7 +201,7 @@ export default async function WorkDetail({ params }: PageProps) {
 
       <section className="next-case">
         <Link className="shell" href={`/work/${next.slug}`}>
-          <span>Next case study</span>
+          <span>다음 프로젝트</span>
           <strong>{next.title}</strong>
           <span aria-hidden="true">↗</span>
         </Link>

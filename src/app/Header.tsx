@@ -8,15 +8,14 @@ export default function Header() {
           <span className="brand__mark" aria-hidden="true">MP</span>
           <span className="brand__text">
             <strong>이명필</strong>
-            <small>AI Technical PM</small>
+            <small>풀스택 엔지니어 · 기술 PM</small>
           </span>
         </Link>
         <nav className="site-nav" aria-label="주요 메뉴">
-          <Link href="/#work">Work</Link>
-          <Link href="/#capabilities">Capabilities</Link>
-          <Link href="/#experience">Experience</Link>
-          <a href="/resume.pdf" target="_blank" rel="noreferrer">Résumé</a>
-          <a className="site-nav__contact" href="mailto:zkwmdi30@gmail.com">Contact</a>
+          <Link href="/#work">프로젝트</Link>
+          <Link href="/#capabilities">역량</Link>
+          <Link href="/#experience">경력</Link>
+          <a className="site-nav__contact" href="mailto:zkwmdi30@gmail.com">연락</a>
         </nav>
       </div>
     </header>
