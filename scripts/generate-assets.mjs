@@ -4,6 +4,7 @@ import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { caseStudies } from "../src/content/case-studies.ts";
 import { personalProjects } from "../src/content/personal-projects.ts";
+import { profile } from "../src/content/profile.ts";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const baseURL = process.env.PREVIEW_URL || "http://127.0.0.1:3000";
@@ -57,7 +58,7 @@ try {
     {
       title: "복잡한 요구를,<br>작동하는 제품으로.",
       label: "ENGINEERING × OWNERSHIP",
-      detail: "풀스택 엔지니어 · 기술 PM",
+      detail: profile.role,
       index: "m.",
       file: "public/og.png",
     },

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./Header";
 import Footer from "@/components/Footer";
+import { profile } from "@/content/profile";
 import { getSiteUrl } from "@/lib/metadata";
 
 const pretendard = localFont({
@@ -15,11 +16,11 @@ const pretendard = localFont({
 export const metadata: Metadata = {
   metadataBase: getSiteUrl(),
   title: {
-    default: "이명필 · 풀스택 엔지니어 & 기술 PM",
+    default: `${profile.name} · ${profile.role}`,
     template: "%s · 이명필",
   },
   description:
-    "AI 제품의 설계와 개발, 팀의 실행을 연결하는 풀스택 엔지니어이자 기술 PM 이명필의 포트폴리오입니다.",
+    "고객의 업무 문제를 AI 제품으로 구현하는 이명필의 포트폴리오입니다. 요구사항 정의부터 핵심 개발, 시스템 연동과 배포까지의 경험을 소개합니다.",
   authors: [{ name: "이명필" }],
 };
 

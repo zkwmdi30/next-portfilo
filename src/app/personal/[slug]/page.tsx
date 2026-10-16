@@ -43,12 +43,10 @@ export default async function PersonalProjectDetail({ params }: PageProps) {
       className={`personal-page personal-page--${project.slug}`}
     >
       <section className="personal-hero shell">
-        <Link href="/#personal" className="back-link">
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Native navigation avoids a duplicated fragment on the cached home route. */}
+        <a href="/#personal" className="back-link">
           ← 개인 프로젝트
-        </Link>
-        <p className="eyebrow">
-          PERSONAL PROJECT {project.index} / {project.category}
-        </p>
+        </a>
         <h1>{project.title}</h1>
         <p className="personal-lead">{project.lead}</p>
         <div className="personal-meta">
@@ -69,7 +67,7 @@ export default async function PersonalProjectDetail({ params }: PageProps) {
 
       <section className="personal-showcase shell" aria-label="실제 제품 화면">
         <div className="personal-showcase-copy">
-          <p className="eyebrow">IN USE</p>
+          <p className="eyebrow">실제 사용 화면</p>
           <h2>{project.highlight}</h2>
           <p>{project.highlightLabel}</p>
           <ul className="tags" aria-label="사용 기술">
@@ -83,7 +81,6 @@ export default async function PersonalProjectDetail({ params }: PageProps) {
 
       <section className="case-section shell">
         <div className="case-label">
-          <span>01</span>
           <h2>시작한 이유</h2>
         </div>
         <div className="case-content">
@@ -93,7 +90,7 @@ export default async function PersonalProjectDetail({ params }: PageProps) {
 
       <section className="personal-process">
         <div className="shell">
-          <p className="eyebrow">PRODUCT FLOW</p>
+          <p className="eyebrow">사용 흐름</p>
           <h2>{project.experienceTitle}</h2>
           <ol className="personal-steps">
             {project.experience.map((step, index) => (
@@ -109,7 +106,6 @@ export default async function PersonalProjectDetail({ params }: PageProps) {
 
       <section className="case-section shell">
         <div className="case-label">
-          <span>02</span>
           <h2>설계에서 중요했던 것</h2>
         </div>
         <div className="case-content personal-decisions">
@@ -124,7 +120,6 @@ export default async function PersonalProjectDetail({ params }: PageProps) {
 
       <section className="case-section shell personal-delivery">
         <div className="case-label">
-          <span>03</span>
           <h2>구현과 결과</h2>
         </div>
         <div className="case-content">
@@ -148,15 +143,16 @@ export default async function PersonalProjectDetail({ params }: PageProps) {
       </section>
       <div className="shell next-project">
         <div>
-          <p className="eyebrow">NEXT PERSONAL PROJECT</p>
+          <p className="eyebrow">다음 개인 프로젝트</p>
           <Link href={`/personal/${next.slug}`}>
             {next.title}
             <Arrow diagonal />
           </Link>
         </div>
-        <Link className="text-link" href="/#personal">
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages -- Keep the same native fragment navigation as the back link. */}
+        <a className="text-link" href="/#personal">
           개인 프로젝트 전체 <Arrow />
-        </Link>
+        </a>
       </div>
     </main>
   );

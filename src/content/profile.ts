@@ -1,11 +1,11 @@
 export const profile = {
   name: "이명필",
   englishName: "MYUNGPIL LEE",
-  role: "풀스택 엔지니어 · 기술 PM",
+  role: "AI·풀스택 엔지니어 · 기술 PM",
   email: "zkwmdi30@gmail.com",
   updatedAt: "2026-10-16",
   summary:
-    "웹 서비스와 AI 제품의 설계·개발·기술 리딩을 맡아 왔습니다. 20개 이상의 프로젝트를 수행하며 고객 요구사항, 아키텍처, 팀의 실행을 연결했습니다. 최근에는 20억 원 규모 A.X 전환 프로젝트에서 개발자 10명의 기술 리딩과 AI 시스템 구축을 담당했습니다.",
+    "고객의 업무 문제를 실행 가능한 범위로 정의하고, AI 솔루션의 설계와 핵심 개발, 기존 시스템 연동과 배포를 연결합니다. Python·FastAPI 기반 AI 시스템과 웹 서비스를 개발해 왔으며, 최근에는 A.X 전환 프로젝트에서 슈퍼바이저·블랙보드 구현과 Kubernetes 플랫폼 구축을 주도했습니다.",
 };
 
 export const skills = [
@@ -30,7 +30,7 @@ export const experience = [
     period: "2024.07 — 현재",
     role: "AI 프로젝트 PM · 기술 리더",
     description:
-      "SKT AI 플랫폼, 자체 Multi-LLM 제품, 제약 계열사 A.X 전환 프로젝트의 설계·개발·리딩.",
+      "고객 요구사항 협의와 프론트엔드 개발, Multi-LLM 제품 설계·핵심 개발, 제약 계열사 AI 시스템 구현과 배포 기반 구축.",
     type: "정규직",
   },
   {

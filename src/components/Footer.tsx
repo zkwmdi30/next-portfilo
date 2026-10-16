@@ -8,7 +8,6 @@ export default function Footer() {
       <div className="shell">
         <div className="footer-top">
           <div>
-            <p className="eyebrow">LET’S BUILD SOMETHING THAT WORKS.</p>
             <h2>
               다음 제품을
               <br />
@@ -17,9 +16,9 @@ export default function Footer() {
           </div>
           <div className="footer-actions">
             <p>
-              AI 제품 개발과 기술 리딩이 필요한 팀,
+              고객의 업무에 AI를 연결하는 팀,
               <br />
-              풀어야 할 문제가 있는 분들과 이야기하고 싶습니다.
+              문제 정의부터 구현·배포까지 함께하고 싶습니다.
             </p>
             <a className="email-link" href={`mailto:${profile.email}`}>
               {profile.email}
@@ -32,7 +31,6 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} 이명필</span>
-          <span>설계하고, 만들고, 끝까지 연결합니다.</span>
           <a href="#main-content">맨 위로 ↑</a>
         </div>
       </div>

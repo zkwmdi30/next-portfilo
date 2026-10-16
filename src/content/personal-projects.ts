@@ -30,11 +30,11 @@ export const personalProjects: PersonalProject[] = [
   {
     slug: "lart-marketing",
     index: "01",
-    title: "LART 마케팅 자동화",
+    title: "인스타그램 마케팅 자동화",
     category: "AI CONTENT OPERATIONS",
     summary:
-      "AI가 만든 콘텐츠를 Telegram에서 검수하고, 승인된 결과를 Instagram에 게시하는 운영 흐름을 구축했습니다.",
-    lead: "반복되는 콘텐츠 제작과 게시를 자동화하고, 사람은 검수와 수정에 집중하도록 만들었습니다. 지인 회사 LART의 Instagram 운영에 적용한 개인 프로젝트입니다.",
+      "브랜드 담당자의 반복 업무를 줄이기 위해 AI 초안 생성, Telegram 검수·수정, 승인 후 Instagram 게시를 하나의 흐름으로 연결했습니다.",
+    lead: "지인 회사 LART의 반복적인 콘텐츠 제작·검수·게시 업무를 자동화한 개인 프로젝트입니다. Mac mini의 에이전트 환경과 Telegram 검수, 브라우저 게시 자동화를 직접 구성하고 실제 브랜드 계정 운영에 적용했습니다.",
     role: "자동화 설계 · 에이전트 환경 구축 · 운영",
     status: "실제 브랜드 계정에 적용",
     tags: ["OpenClaw", "OpenAI API", "Telegram Bot", "Peekaboo", "Mac mini"],
@@ -110,8 +110,8 @@ export const personalProjects: PersonalProject[] = [
     title: "단어한끼",
     category: "CHINESE LEARNING APP",
     summary:
-      "10문제 퀴즈와 노선형 학습 여정으로 중국어 단어를 익히는 iOS 앱입니다. 오답 복습과 예문 듣기를 연결해 App Store에 출시했습니다.",
-    lead: "한 번에 10문제씩, 다음 역을 열며 중국어 단어를 익히는 앱입니다. 단어 퀴즈와 발음 듣기, 오답 복습을 짧게 반복할 수 있도록 학습 경험을 설계하고 iOS 앱으로 출시했습니다.",
+      "짧은 학습을 이어갈 수 있도록 10문제 퀴즈와 오답 복습을 설계했습니다. Flutter 앱 개발과 콘텐츠 API 연동을 맡아 App Store에 출시했습니다.",
+    lead: "학습 분량의 부담을 줄이고 짧은 복습을 이어가도록 만든 중국어 학습 앱입니다. 10문제 퀴즈와 노선형 학습 흐름을 설계하고 Flutter 화면·학습 기록·음성 기능을 구현했습니다. 콘텐츠 API 연동부터 App Store 배포까지 직접 진행했습니다.",
     role: "앱 UX 설계 · Flutter 개발 · API 연동 · 배포",
     status: "App Store 출시",
     tags: ["Flutter", "Dart", "GetX", "Hive", "TTS", "Spring Boot"],

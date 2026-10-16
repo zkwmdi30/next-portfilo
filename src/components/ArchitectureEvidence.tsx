@@ -54,6 +54,7 @@ export default function ArchitectureEvidence({
   const Heading = headingLevel === 2 ? "h2" : "h3";
   const PointHeading = headingLevel === 2 ? "h3" : "h4";
   const titleId = useId();
+  const isDocument = evidence.preview === "document";
   const dialog = useRef<HTMLDialogElement>(null);
   const viewport = useRef<HTMLDivElement>(null);
   const [zoomed, setZoomed] = useState(false);
@@ -67,36 +68,46 @@ export default function ArchitectureEvidence({
     viewport.current?.scrollTo(0, 0);
   }
 
+  const points = (
+    <ul className="evidence-points">
+      {evidence.points.map((point) => (
+        <li key={point.title}>
+          <PointHeading className="evidence-point-heading">
+            {point.title}
+          </PointHeading>
+          <p>{point.body}</p>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
     <figure
       className={`architecture-evidence${evidence.layout === "wide" ? " architecture-evidence--wide" : ""}`}
     >
       <figcaption>
-        <p className="eyebrow">{evidence.eyebrow}</p>
         <Heading className="evidence-heading">{evidence.title}</Heading>
       </figcaption>
       <div className="evidence-layout">
+        {isDocument && points}
         <button
-          className="evidence-preview"
+          className={`evidence-preview${isDocument ? " evidence-document-preview" : ""}`}
           onClick={openDiagram}
           aria-label={`${evidence.label} 확대`}
         >
-          <EvidenceImage evidence={evidence} />
+          {isDocument ? (
+            <>
+              <strong>원본 실행 흐름도</strong>
+              <span>세부 분기와 검증 과정, 예정 작업을 포함한 전체 자료입니다.</span>
+            </>
+          ) : (
+            <EvidenceImage evidence={evidence} />
+          )}
           <span className="evidence-open-label">
             {evidence.label} 크게 보기 <span aria-hidden="true">↗</span>
           </span>
         </button>
-        <ol className="evidence-points">
-          {evidence.points.map((point, index) => (
-            <li key={point.title}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <PointHeading className="evidence-point-heading">
-                {point.title}
-              </PointHeading>
-              <p>{point.body}</p>
-            </li>
-          ))}
-        </ol>
+        {!isDocument && points}
       </div>
       <p className="evidence-caption">{evidence.caption}</p>
       {evidence.source && (

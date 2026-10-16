@@ -6,15 +6,15 @@ import ProjectVisual from "@/components/ProjectVisual";
 import PersonalProjectVisual from "@/components/PersonalProjectVisual";
 import { caseStudies } from "@/content/case-studies";
 import { personalProjects } from "@/content/personal-projects";
-import { experience, skills } from "@/content/profile";
+import { profile, experience, skills } from "@/content/profile";
 import { pageMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata({
     path: "/",
-    title: "이명필 · 풀스택 엔지니어 & 기술 PM",
+    title: `${profile.name} · ${profile.role}`,
     description:
-      "AI 제품의 설계와 개발, 팀의 실행을 연결하는 이명필입니다. A.X 전환, Multi-LLM 제품, SKT AI 플랫폼 프로젝트를 소개합니다.",
+      "고객의 업무 문제를 AI 제품으로 구현하는 이명필입니다. 요구사항 정의, Python·FastAPI 개발, 기존 시스템 연동과 배포 경험을 소개합니다.",
     image: "/og.png",
   });
 }
@@ -26,7 +26,7 @@ export default function Home() {
         <div className="hero-kicker">
           <span className="eyebrow">ENGINEERING × OWNERSHIP</span>
           <span className="hero-location">
-            서울, 대한민국 <span aria-hidden="true">↗</span>
+            서울, 대한민국
           </span>
         </div>
         <div className="hero-main">
@@ -35,9 +35,6 @@ export default function Home() {
             <br />
             <span>작동하는 제품으로.</span>
           </h1>
-          <span className="hero-asterisk" aria-hidden="true">
-            ✳
-          </span>
         </div>
         <div className="hero-bottom">
           <div className="hero-person">
@@ -52,16 +49,15 @@ export default function Home() {
             </div>
             <div>
               <strong>이명필</strong>
-              <span>풀스택 엔지니어 · 기술 PM</span>
+              <span>{profile.role}</span>
             </div>
           </div>
           <div className="hero-intro">
             <p>
-              AI 제품을 설계하고 핵심 기능을 구현합니다.
+              고객의 업무 문제를 AI 제품으로 구현합니다.
               <br />
-              고객의 요구와 기술, 팀의 실행을 연결해
-              <br className="desktop-break" /> 실제 사용할 수 있는 제품을
-              만듭니다.
+              요구사항을 구체화하고 핵심 기능을 개발해,
+              <br className="desktop-break" /> 기존 시스템 연동과 배포까지 연결합니다.
             </p>
             <div className="button-row">
               <a href="#work" className="button button-primary">
@@ -97,11 +93,11 @@ export default function Home() {
             </dd>
           </div>
           <div className="career-strip-note">
-            <dt>FOCUS</dt>
+            <dt>주요 업무</dt>
             <dd>
               AI 제품 개발
               <br />
-              풀스택 아키텍처 · 기술 PM
+              고객 문제 정의 · 구현 · 배포
             </dd>
           </div>
         </dl>
@@ -114,16 +110,16 @@ export default function Home() {
       >
         <div className="section-heading">
           <div>
-            <p className="eyebrow">SELECTED WORK / 2025 — 2026</p>
+            <p className="eyebrow">주요 프로젝트</p>
             <h2 id="work-title">
               문제에서 출발한
               <br />세 가지 경험.
             </h2>
           </div>
           <p>
-            AI 시스템의 기술 리딩부터 제품 출시,
+            고객의 업무와 제약을 이해하고,
             <br />
-            고객과 개발팀을 연결하는 프로젝트 관리까지.
+            직접 설계하고 개발해 해결한 과정입니다.
           </p>
         </div>
         <div className="project-list">
@@ -143,8 +139,7 @@ export default function Home() {
                     aria-hidden="true"
                   >
                     <div className="visual-heading">
-                      <span>{project.index} / AIME · ACTUAL PRODUCT</span>
-                      <span className="visual-dot" />
+                      <span>실제 서비스 화면</span>
                     </div>
                     <div className="project-product-image">
                       <Image
@@ -157,7 +152,6 @@ export default function Home() {
                     </div>
                     <div className="visual-caption">
                       <span>계열사 AI 업무 플랫폼</span>
-                      <span>실제 채팅 화면 ↗</span>
                     </div>
                   </div>
                 ) : (
@@ -170,7 +164,7 @@ export default function Home() {
               <div className="project-copy">
                 <div className="project-kicker">
                   <span>
-                    {project.index} / {project.eyebrow}
+                    {project.eyebrow}
                   </span>
                   <span>{project.period.split(" — ")[0]}</span>
                 </div>
@@ -211,7 +205,7 @@ export default function Home() {
       >
         <div className="section-heading">
           <div>
-            <p className="eyebrow">PERSONAL PROJECTS</p>
+            <p className="eyebrow">개인 프로젝트</p>
             <h2 id="personal-title">
               직접 만들고,
               <br />
@@ -241,7 +235,6 @@ export default function Home() {
                 </span>
               </Link>
               <div className="personal-card-copy">
-                <p className="eyebrow">{project.category}</p>
                 <h3>
                   <Link href={`/personal/${project.slug}`}>
                     {project.title}
@@ -266,7 +259,7 @@ export default function Home() {
       <section className="approach-section" aria-labelledby="approach-title">
         <div className="shell approach-grid">
           <div>
-            <p className="eyebrow">HOW I WORK</p>
+            <p className="eyebrow">일하는 방식</p>
             <h2 id="approach-title">
               설계와 실행 사이를
               <br />
@@ -279,12 +272,11 @@ export default function Home() {
           </div>
           <div className="approach-list">
             <article>
-              <span>01</span>
               <div>
-                <h3>문제를 실행 가능한 범위로</h3>
+                <h3>고객의 문제를 개발 범위로</h3>
                 <p>
-                  고객의 요구를 정리하고, 팀이 구현할 기능과 우선순위로
-                  구체화합니다.
+                  고객과 필요한 기능과 우선순위를 협의합니다. 핵심 기능 2개를
+                  반영하고 기존 요구사항 5개를 제외하는 범위 합의를 이끌었습니다.
                 </p>
                 <Link href="/work/skt-ai-agent">
                   요구사항 조정 사례 <Arrow />
@@ -292,12 +284,11 @@ export default function Home() {
               </div>
             </article>
             <article>
-              <span>02</span>
               <div>
-                <h3>아키텍처를 실제 제품으로</h3>
+                <h3>설계에서 핵심 기능 개발까지</h3>
                 <p>
-                  화면, API, 인증, 결제, AI 실행의 경계를 설계하고 핵심 기능을
-                  구현합니다.
+                  AI 실행, 인증, 결제의 경계를 설계하고 핵심 개발을 맡았습니다.
+                  4명 개발팀으로 가입·결제 가능한 Multi-LLM 제품을 출시했습니다.
                 </p>
                 <Link href="/work/multi-llm">
                   제품 출시 사례 <Arrow />
@@ -305,12 +296,11 @@ export default function Home() {
               </div>
             </article>
             <article>
-              <span>03</span>
               <div>
-                <h3>측정하고, 검증하고, 개선하기</h3>
+                <h3>고객 환경에서 검증하고 개선하기</h3>
                 <p>
-                  문서 처리 병목을 측정하고 대체 구현을 검증했습니다. 배포와
-                  리뷰도 팀의 반복 가능한 과정으로 만듭니다.
+                  문서 분석 API를 구현하고 동일 문서의 처리 시간을 비교했습니다.
+                  인증·권한 설정을 역추적하고 Kubernetes 배포 환경을 구축했습니다.
                 </p>
                 <Link href="/work/enterprise-ax">
                   성능 개선 사례 <Arrow />
@@ -327,11 +317,11 @@ export default function Home() {
         aria-labelledby="about-title"
       >
         <div className="about-heading">
-          <p className="eyebrow">ABOUT & EXPERIENCE</p>
+          <p className="eyebrow">소개와 경력</p>
           <h2 id="about-title">
-            만드는 사람에서,
+            고객의 업무를 이해하고,
             <br />
-            함께 완성하는 사람으로.
+            코드로 해결합니다.
           </h2>
         </div>
         <div className="about-grid">
@@ -342,8 +332,9 @@ export default function Home() {
               넓혔습니다.
             </p>
             <p>
-              직접 구현해 본 경험을 바탕으로 고객과 개발팀 사이에서 판단합니다.
-              필요한 순간에는 설계, 핵심 개발, 리뷰와 검증에 함께 참여합니다.
+              고객과 개발 범위를 협의하고, Python·FastAPI 기반 AI 시스템과
+              프론트엔드의 설계·개발을 맡았습니다. 플랫폼 설치 중 드러난
+              인증·권한 문제는 로그로 분석하고 개발팀과 확인해 해결했습니다.
             </p>
             <Link className="text-link" href="/resume">
               전체 경력과 이력서 <Arrow />

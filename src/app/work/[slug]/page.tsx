@@ -45,7 +45,7 @@ export default async function WorkDetail({ params }: PageProps) {
         <div className="case-hero-grid">
           <div>
             <p className="eyebrow">
-              CASE STUDY {study.index} / {study.eyebrow}
+              {study.eyebrow}
             </p>
             <h1>{study.title}</h1>
             <p className="case-lead">{study.lead}</p>
@@ -78,7 +78,6 @@ export default async function WorkDetail({ params }: PageProps) {
       {study.publication && (
         <aside className="public-reference shell" aria-label="공식 제품 소개">
           <div>
-            <p className="eyebrow">PUBLIC REFERENCE</p>
             <h2>회사 공식 솔루션으로 소개된 제품입니다.</h2>
             <p>
               {study.publication.label} · {study.publication.location}
@@ -120,14 +119,13 @@ export default async function WorkDetail({ params }: PageProps) {
         </dl>
       </div>
       <nav className="case-toc shell" aria-label="사례 목차">
-        <a href="#context">01 배경</a>
-        <a href="#system">02 구조와 실행</a>
-        <a href="#decisions">03 기술적 판단</a>
-        <a href="#contribution">04 기여와 결과</a>
+        <a href="#context">배경</a>
+        <a href="#system">구조와 실행</a>
+        <a href="#decisions">기술적 판단</a>
+        <a href="#contribution">기여와 결과</a>
       </nav>
       <section className="case-section shell" id="context">
         <div className="case-label">
-          <span>01</span>
           <h2>어떤 문제였나요?</h2>
         </div>
         <div className="case-content">
@@ -149,7 +147,6 @@ export default async function WorkDetail({ params }: PageProps) {
       <section className="case-system" id="system">
         <div className="case-section shell">
           <div className="case-label">
-            <span>02</span>
             <h2>
               {study.slug === "skt-ai-agent"
                 ? "책임과 실행의 구조"
@@ -158,9 +155,8 @@ export default async function WorkDetail({ params }: PageProps) {
           </div>
           <div className="case-content">
             <div className="architecture-list">
-              {study.architecture.map((layer, index) => (
+              {study.architecture.map((layer) => (
                 <div key={layer.name}>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
                   <h3>{layer.name}</h3>
                   <p>{layer.detail}</p>
                 </div>
@@ -217,13 +213,11 @@ export default async function WorkDetail({ params }: PageProps) {
       </section>
       <section className="case-section shell" id="decisions">
         <div className="case-label">
-          <span>03</span>
           <h2>무엇을 선택했나요?</h2>
         </div>
         <div className="case-content decisions">
           {study.decisions.map((decision) => (
             <article key={decision.index}>
-              <span className="decision-number">DECISION {decision.index}</span>
               <h3>{decision.title}</h3>
               <dl>
                 <div>
@@ -247,7 +241,6 @@ export default async function WorkDetail({ params }: PageProps) {
       </section>
       <section className="case-section shell" id="contribution">
         <div className="case-label">
-          <span>04</span>
           <h2>
             제가 맡은 일과
             <br />
@@ -274,7 +267,7 @@ export default async function WorkDetail({ params }: PageProps) {
       </section>
       <div className="shell next-project">
         <div>
-          <p className="eyebrow">NEXT CASE STUDY</p>
+          <p className="eyebrow">다음 프로젝트</p>
           <Link href={`/work/${next.slug}`}>
             {next.title}
             <Arrow diagonal />

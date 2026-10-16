@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 function PageNumber({ page }: { page: number }) {
   return (
     <div className="resume-page-number">
-      <span>이명필 · 풀스택 엔지니어 / 기술 PM</span>
+      <span>{profile.name} · {profile.role}</span>
       <span>{page} / 3</span>
     </div>
   );
@@ -50,7 +50,7 @@ export default function ResumePage() {
             aria-label="이력서 1쪽: 소개와 AI 제품 경험"
           >
             <h2 className="resume-name">이명필</h2>
-            <p className="resume-title">풀스택 엔지니어 · 기술 PM</p>
+            <p className="resume-title">{profile.role}</p>
             <div className="resume-contact">
               <a href={`mailto:${profile.email}`}>{profile.email}</a>
               <span>2016년부터 개발 · 20개 이상 프로젝트 수행</span>
@@ -67,12 +67,12 @@ export default function ResumePage() {
               </div>
               <ul>
                 <li>
-                  제약 계열사의 ERP·그룹웨어·문서 업무를 통합하는 AI 시스템의
-                  아키텍처와 핵심 구현 주도.
+                  수기로 취합하던 요청과 문서 업무를 연결하기 위해 ERP·그룹웨어와
+                  연동하는 AI 시스템의 아키텍처와 핵심 구현 주도.
                 </li>
                 <li>
-                  A.X 에이전트 필수 활용 조건에 맞춰 LangGraph 슈퍼바이저와
-                  블랙보드 구조 설계. 약 12개 에이전트의 검증된 결과를 축적하고
+                  Python·FastAPI 기반 LangGraph 슈퍼바이저와 블랙보드
+                  설계·구현 주도. 약 12개 에이전트의 검증된 결과를 축적하고
                   다음 작업의 근거로 전달. 서브 에이전트 5개 직접 구성.
                 </li>
                 <li>
@@ -81,8 +81,8 @@ export default function ResumePage() {
                   34.8% 단축.
                 </li>
                 <li>
-                  Kubernetes 기반 A.X 플랫폼 설치, Keycloak 인증·권한과 GitLab
-                  CI·Argo CD 배포 환경 구축.
+                  Kubernetes 플랫폼 설치, 로그 분석을 통한 Keycloak 인증·권한
+                  설정 복원과 GitLab CI·Argo CD 배포 환경 구축.
                 </li>
                 <li>
                   AI 개발 규칙과 리뷰 과정을 문서화하고 GitLab Merge Request의
@@ -102,8 +102,8 @@ export default function ResumePage() {
               </div>
               <ul>
                 <li>
-                  초기 아이디어를 제품 요구사항과 사용자 흐름으로 구체화하고
-                  개발자 3명을 리딩. 약 3개월 내 가입·결제 가능한 웹 제품을
+                  AI 사업 제안에 필요한 제품의 요구사항을 정의하고 핵심 개발과
+                  개발자 3명 리딩 담당. 약 3개월 내 가입·결제 가능한 웹 제품을
                   2026.03.27 출시.
                 </li>
                 <li>
@@ -137,11 +137,11 @@ export default function ResumePage() {
           </section>
           <section
             className="resume-sheet"
-            aria-label="이력서 2쪽: 프로젝트 관리와 기술 리딩"
+            aria-label="이력서 2쪽: 고객 협업과 직접 개발"
           >
             <div className="resume-mini-header">
-              <strong>프로젝트 관리와 기술 리딩</strong>
-              <span>이명필 · SELECTED EXPERIENCE</span>
+              <strong>고객 협업과 직접 개발</strong>
+              <span>이명필</span>
             </div>
             <article className="resume-project">
               <h3>SKT AI 플랫폼 에이전트 고도화 · 2차 사업</h3>
@@ -151,8 +151,8 @@ export default function ResumePage() {
               </div>
               <ul>
                 <li>
-                  프론트엔드 테크니컬 PM으로 고객사 Agile 협업과 8인 팀 관리를
-                  맡고 설계·개발 병행.
+                  Vue 3·TypeScript·vue-query·GraphQL 기반 프론트엔드 설계·개발과
+                  외부 API 연동. 테크니컬 PM으로 고객사 협업과 8인 팀 관리 병행.
                 </li>
                 <li>
                   고객에게 필요한 핵심 기능 2개를 반영하는 조건으로 기존

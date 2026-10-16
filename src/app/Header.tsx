@@ -36,7 +36,7 @@ export default function Header() {
             m<span>.</span>
           </span>
           <span>
-            이명필<span className="brand-caption">ENGINEER & TECHNICAL PM</span>
+            이명필
           </span>
         </Link>
         <button

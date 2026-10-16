@@ -20,6 +20,7 @@ export type CaseEvidence = {
   label: string;
   eyebrow: string;
   layout?: "wide";
+  preview?: "document";
   alt: string;
   caption: string;
   points: Array<{ title: string; body: string }>;
@@ -82,15 +83,15 @@ export const caseStudies: CaseStudy[] = [
     slug: "enterprise-ax",
     index: "01",
     cardSummary:
-      "A.X 에이전트의 결과를 블랙보드에 모아 업무를 연결하고, 문서 분석의 병목을 개선했습니다.",
-    shortRole: "Tech Lead",
+      "분산된 업무를 연결하기 위해 AI 슈퍼바이저를 설계·구현하고, 문서 분석 API와 Kubernetes 운영 기반을 구축했습니다.",
+    shortRole: "AI 설계·구현 · Tech Lead",
     highlight: "34.8%",
     highlightLabel: "동일 문서 처리 시간 단축",
     title: "계열사 A.X 전환",
-    eyebrow: "기업 AI 업무 전환",
-    lead: "삼성제약과 젬백스앤카엘의 수기·분산 업무를 AI 기반 시스템으로 전환한 20억 원 규모 프로젝트입니다.",
+    eyebrow: "고객 업무에 AI를 연결하는 설계와 구현",
+    lead: "삼성제약과 젬백스앤카엘의 분산된 요청과 문서 업무를 AI 시스템으로 연결하는 프로젝트입니다. LangGraph 슈퍼바이저와 블랙보드의 설계·구현을 주도하고, 자체 문서 분석 API와 Kubernetes 운영 기반을 구축했습니다.",
     period: "2026.04 — 2026.08",
-    role: "기술 리더",
+    role: "AI 아키텍처 · 핵심 개발 · 기술 리딩",
     team: "전체 16명 · 개발자 10명",
     scale: "약 20억 원",
     productEvidence: {
@@ -116,8 +117,9 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     tags: [
-      "LangGraph",
+      "Python",
       "FastAPI",
+      "LangGraph",
       "Kubernetes",
       "Keycloak",
       "Istio",
@@ -147,7 +149,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     context: [
       "영업 관련 요청과 정보는 카카오톡, 이메일 등 여러 채널로 들어왔고 담당자가 이를 수기로 취합해야 했습니다. 채널에서 받은 데이터는 다시 Excel로 정리해 월별로 저장했으며, 흡수율과 이상치는 별도 프로그램을 실행한 뒤 육안으로 비교했습니다.",
-      "목표는 단순 챗봇 도입이 아니었습니다. 분산된 채널과 수기 업무를 하나의 데이터 흐름으로 통합하고, AI가 데이터를 해석·적재·검색·출력하며 필요한 경우 ERP와 그룹웨어까지 연결되는 업무 시스템을 만드는 것이었습니다.",
+      "해결할 과제는 분산된 채널과 수기 업무를 하나의 데이터 흐름으로 통합하는 것이었습니다. 고객의 기존 ERP·그룹웨어와 연결하면서, AI가 데이터를 해석·적재·검색·출력할 수 있는 업무 시스템을 목표로 삼았습니다.",
       "사업 조건상 A.X 에이전트를 반드시 구현·활용해야 했습니다. 대화 상태를 갱신하는 흐름만으로는 여러 에이전트의 결과를 다음 업무로 이어가기 어려웠습니다. 검증된 정보를 공용 블랙보드에 축적하고, 슈퍼바이저가 이를 근거로 다음 작업을 결정하는 구조를 선택했습니다.",
     ],
     problems: [
@@ -157,7 +159,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "상용화하기 어려운 문서 분석 속도",
-        body: "SKT DI가 동일 데이터 처리에 59분 47초가 걸리는 문제를 확인하고, Azure API 구조와 호환되는 자체 Document Insight를 설계했습니다.",
+        body: "SKT DI가 동일 문서를 처리하는 데 59분 47초가 걸리는 병목을 확인했습니다. 외부 데이터 전송과 추가 비용이라는 제약을 고려해 Azure API 구조와 호환되는 자체 Document Insight를 설계·구현하고 처리 시간을 비교했습니다.",
       },
       {
         title: "설치 문서가 부족한 플랫폼 구축",
@@ -213,6 +215,7 @@ export const caseStudies: CaseStudy[] = [
       evidence: [
         {
           src: "/images/enterprise-ax-supervisor-flow.png",
+          preview: "document",
           width: 2400,
           height: 4646,
           title: "실제 슈퍼바이저 실행 흐름",
@@ -309,17 +312,18 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     ownership: [
+      "Python·FastAPI 기반 LangGraph 슈퍼바이저와 블랙보드 설계·구현 주도",
+      "A.X Agent Builder 기반 서브 에이전트 5개 직접 구성",
+      "자체 Document Insight API 설계·개발과 동일 문서 성능 비교",
       "전체 아키텍처와 A.X API 연동 방향 수립",
-      "초기 프로젝트·폴더 구조와 AI 개발 하네스 구성",
-      "LangGraph 슈퍼바이저와 블랙보드 아키텍처 설계·구현 주도",
-      "A.X Agent Builder 기반 서브 에이전트 5개 구성",
-      "Document Insight 선행 연구와 성능 검증",
-      "Kubernetes 플랫폼 전체 설치와 운영 기반 구축",
-      "GitLab Merge Request 기반 리뷰와 최종 품질 승인",
+      "Kubernetes 플랫폼 설치와 Keycloak 인증·권한 설정 분석",
+      "초기 프로젝트 구조·AI 개발 하네스 구성과 개발 규칙 문서화",
+      "개발자 10명 기술 리딩, GitLab Merge Request 리뷰와 최종 품질 승인",
     ],
     outcomes: [
-      "사내 최초 Kubernetes 기반 A.X 플랫폼 설치·운영 역량 확보",
       "삼성제약 조직원 90명 중 초기 활성 사용자 14명 확보",
+      "동일 7.22MB·380페이지 PDF의 처리 시간 34.8% 단축",
+      "사내 최초 Kubernetes 기반 A.X 플랫폼 설치·운영 역량 확보",
       "SKT 컨소시엄을 통한 제약 분야 후속 사업 공동 제안",
       "AI 개발 규칙을 Markdown과 하네스로 문서화해 팀 지식으로 축적",
     ],
@@ -330,13 +334,13 @@ export const caseStudies: CaseStudy[] = [
     slug: "multi-llm",
     index: "02",
     cardSummary:
-      "모델 선택부터 가입·결제까지. 아이디어를 공개 가능한 AI 제품으로 만들었습니다.",
-    shortRole: "PM · Architect",
+      "AI 사업 제안에 필요한 기술 증빙을 만들기 위해, 모델 병렬 호출과 인증·결제 구조를 설계하고 핵심 개발과 출시를 맡았습니다.",
+    shortRole: "아키텍처 · 핵심 개발 · PM",
     highlight: "3개월",
     highlightLabel: "기획부터 가입·결제 가능한 제품 출시까지",
     title: "Multi-LLM 솔루션",
     eyebrow: "AI 제품 기획부터 출시까지",
-    lead: "회사의 AI 역량을 실제 제품으로 증명하기 위해, 아이디어 단계부터 가입·결제가 가능한 Multi-LLM 웹 서비스를 출시했습니다.",
+    lead: "AI 사업 제안에서 실제 제품으로 개발 역량을 보여줄 필요가 있었습니다. 사용자 흐름과 모델 병렬 호출·평가, 인증·결제 구조를 설계하고 핵심 개발을 맡아 4명 개발팀으로 가입·결제 가능한 웹 서비스를 출시했습니다.",
     period: "2026.01 — 2026.04",
     role: "PM · 아키텍처 설계 · 핵심 개발",
     team: "본인 포함 4명 개발팀",
@@ -389,7 +393,7 @@ export const caseStudies: CaseStudy[] = [
       { name: "이벤트", detail: "REST API · Kafka" },
     ],
     proof: {
-      title: "여러 번 개선하지 않고, 한 번 병렬 생성해 잘 선택했습니다.",
+      title: "모델 병렬 호출부터 답변 선택과 사용량 정산까지 연결했습니다.",
       summary:
         "사용자가 고른 모델들을 동시에 호출하고 품질 점수가 가장 높은 모델이 평가 역할을 맡습니다. 반복 생성 대신 선택 구조로 응답 비용과 대기 시간을 통제했습니다.",
       flow: [
@@ -466,7 +470,7 @@ export const caseStudies: CaseStudy[] = [
     decisions: [
       {
         index: "01",
-        title: "더 많이 생성하기보다 한 번 잘 선택했습니다.",
+        title: "비용과 대기 시간을 고려해 병렬 생성·선택 구조를 설계했습니다.",
         situation:
           "반복 개선은 결과를 높일 수 있지만 출력 토큰과 사용자의 대기 비용도 함께 늘어납니다.",
         decision:
@@ -496,10 +500,10 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     ownership: [
-      "제품 상세 기획과 사용자 흐름 정의",
-      "MSA 도메인 경계와 전체 아키텍처 설계",
-      "Multi-LLM 오케스트레이션과 평가 모델 구조 설계",
-      "개발자 3명 업무 리딩과 핵심 기능 구현",
+      "제품 핵심 기능 구현과 개발자 3명 기술·업무 리딩",
+      "Multi-LLM 병렬 호출·답변 평가 구조와 MSA 도메인 경계 설계",
+      "Keycloak 인증, 결제·크레딧의 책임 범위와 전체 아키텍처 설계",
+      "사업 제안에 활용할 제품의 기능 범위와 사용자 흐름 정의",
       "AI로 생성한 UI 디자인 검토와 수정",
       "가입·결제·크레딧을 포함한 출시 추진",
     ],
@@ -517,18 +521,18 @@ export const caseStudies: CaseStudy[] = [
     slug: "skt-ai-agent",
     index: "03",
     title: "SKT AI 플랫폼 에이전트 고도화",
-    eyebrow: "합의한 범위를 안정적인 납품으로",
+    eyebrow: "고객과 범위를 합의하고 직접 개발한 AI 플랫폼",
     cardSummary:
-      "핵심 기능을 반영하는 조건으로 개발 범위를 줄여 합의를 이끌었습니다. 안정적인 완료 이후 후속 사업 제안 6건이 직접 들어왔습니다.",
-    shortRole: "프론트엔드 테크니컬 PM",
+      "고객과 핵심 기능·개발 범위를 합의하고 프론트엔드 설계·개발을 병행했습니다. 배포 이후까지 마무리하며 후속 사업 제안 6건으로 이어졌습니다.",
+    shortRole: "프론트엔드 개발 · 테크니컬 PM",
     highlight: "6건",
     highlightLabel: "프로젝트 완료 이후 직접 들어온 후속 사업 제안",
-    lead: "SKT AI 플랫폼 2차 사업의 프론트엔드 테크니컬 PM으로 고객과 개발 범위를 협상하고 8인 팀의 설계·개발을 이끌었습니다. 배포 이후 중대한 이슈 없이 프로젝트를 마무리했고, 이후 후속 사업 제안 6건이 직접 들어왔습니다.",
+    lead: "고객에게 필요한 핵심 기능을 확보하면서 개발 범위를 조정한 SKT AI 플랫폼 2차 사업입니다. 고객과 우선순위를 협의하고, 8인 프로젝트의 프론트엔드 설계·개발과 외부 API 연동을 병행해 합의한 요구사항을 구현했습니다.",
     period: "2025.07 — 2026.01",
     role: "프론트엔드 테크니컬 PM · 설계 · 개발",
     team: "프로젝트 인원 8명",
     scale: "약 5억 원 · FE 프로젝트",
-    tags: ["프론트엔드 테크니컬 PM", "범위 협상", "설계·개발", "Agile"],
+    tags: ["Vue 3", "TypeScript", "GraphQL", "API 연동", "범위 협상", "Agile"],
     metrics: [
       {
         value: "6건",
@@ -561,14 +565,14 @@ export const caseStudies: CaseStudy[] = [
         body: "요구사항을 일방적으로 줄이는 대신, 고객이 원하는 핵심 기능을 반영하는 교환 조건을 제시했습니다. 기존 범위를 줄이는 합의를 통해 추가 요청이 그대로 팀의 부담으로 쌓이지 않도록 조정했습니다.",
       },
       {
-        title: "관리와 구현의 연결",
-        body: "8인 프로젝트의 프론트엔드 테크니컬 PM으로 설계·개발을 병행해, 고객과 합의한 범위를 실제 구현과 배포로 이어갔습니다.",
+        title: "합의한 요구사항을 화면과 API 연동으로 구현",
+        body: "Vue 3·TypeScript·vue-query·GraphQL 기반 프론트엔드를 설계하고 개발을 병행했습니다. 외부 API와 사용자 화면을 연결해 고객과 합의한 요구사항을 실제 기능으로 구현했습니다.",
       },
     ],
     architecture: [
       { name: "고객 협업", detail: "고객사와 Agile 협업 · 요구사항 협의" },
       { name: "프로젝트 관리", detail: "8인 팀 · 프론트엔드 범위와 일정 관리" },
-      { name: "기술 실행", detail: "프론트엔드 설계 · 직접 개발 병행" },
+      { name: "직접 개발", detail: "Vue 3 · TypeScript · vue-query · GraphQL · 외부 API 연동" },
     ],
     proof: {
       title: "범위 협상에서 안정적인 완료, 다음 사업 기회까지.",
@@ -613,10 +617,10 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     ownership: [
-      "공공 AI 사업의 프론트엔드 테크니컬 PM 수행",
-      "고객사 Agile 협업과 기능 교환 조건을 통한 범위 협상",
-      "8인 프로젝트 관리",
-      "프론트엔드 설계와 개발 병행",
+      "Vue 3·TypeScript·vue-query·GraphQL 기반 프론트엔드 설계와 개발",
+      "외부 API를 연동해 고객 요구사항을 사용자 기능으로 구현",
+      "고객사 Agile 협업과 핵심 기능·기존 요구사항의 우선순위 협의",
+      "8인 프로젝트의 프론트엔드 테크니컬 PM으로 범위와 일정 관리",
     ],
     outcomes: [
       "핵심 기능을 확보한 고객과 구현 부담을 줄인 개발팀 모두가 수용하는 범위 합의",
