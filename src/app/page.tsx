@@ -1,146 +1,177 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { projects } from "@/content/projects";
+import Arrow from "@/components/Arrow";
+import ProjectVisual from "@/components/ProjectVisual";
+import PersonalProjectVisual from "@/components/PersonalProjectVisual";
+import { caseStudies } from "@/content/case-studies";
+import { personalProjects } from "@/content/personal-projects";
+import { experience, skills } from "@/content/profile";
+import { pageMetadata } from "@/lib/metadata";
 
-const stats = [
-  { value: "10년+", label: "제품 개발 경력" },
-  { value: "20+", label: "수행 프로젝트" },
-  { value: "10명", label: "최대 개발팀 리딩" },
-];
-
-function ProjectVisual({ slug }: { slug: string }) {
-  if (slug === "enterprise-ax") {
-    return (
-      <div className="system-visual system-visual--agents" aria-hidden="true">
-        <div className="system-visual__label">AI 에이전트 실행 구조</div>
-        <div className="agent-flow">
-          <span className="agent-flow__input">사용자 요청</span>
-          <span className="agent-flow__line" />
-          <strong className="agent-flow__core">슈퍼바이저</strong>
-          <span className="agent-flow__line" />
-          <div className="agent-flow__nodes">
-            <span>ERP</span><span>RAG</span><span>메일</span><span>문서 분석</span>
-          </div>
-          <span className="agent-flow__review">결과 검토 · 최대 5회</span>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="system-visual system-visual--models" aria-hidden="true">
-      <div className="system-visual__label">다중 LLM 실행 구조</div>
-      <div className="model-flow">
-        <div className="model-flow__models">
-          <span>GPT</span><span>Claude</span><span>Gemini</span>
-        </div>
-        <div className="model-flow__rails"><i /><i /><i /></div>
-        <strong>병렬 호출</strong>
-        <span className="model-flow__select">평가 모델이 최종 답변 선택 →</span>
-      </div>
-    </div>
-  );
+export async function generateMetadata(): Promise<Metadata> {
+  return pageMetadata({
+    path: "/",
+    title: "이명필 · 풀스택 엔지니어 & 기술 PM",
+    description:
+      "AI 제품의 설계와 개발, 팀의 실행을 연결하는 이명필입니다. A.X 전환, Multi-LLM 제품, SKT AI 플랫폼 프로젝트를 소개합니다.",
+    image: "/og.png",
+  });
 }
 
 export default function Home() {
   return (
-    <main id="main-content">
-      <div className="hero-stage">
-        <section className="hero shell" aria-labelledby="hero-title">
-          <div className="hero__copy">
-            <p className="eyebrow">
-              <span className="eyebrow__dot" aria-hidden="true" />
-              풀스택 엔지니어 · 기술 PM
-            </p>
-            <h1 id="hero-title">
-              AI 제품을 설계하고
-              <br />
-              <span>직접 구현하며</span>
-              <br />
-              팀과 납품까지 이끕니다.
-            </h1>
-            <p className="hero__description">
-              프론트엔드에서 시작해 백엔드, 인프라, AI 시스템으로 영역을
-              넓혔습니다. 복잡한 요구사항을 제품으로 바꾸고 핵심 구현과
-              기술 리딩까지 책임집니다.
-            </p>
-            <div className="hero__actions">
-              <a className="button button--primary" href="#work">
-                대표 프로젝트 보기 <span aria-hidden="true">↓</span>
-              </a>
-              <a className="button button--ghost" href="mailto:zkwmdi30@gmail.com">
-                연락하기 <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-          </div>
-
-          <figure className="hero-portrait">
-            <div className="hero-portrait__image">
+    <main tabIndex={-1} id="main-content">
+      <section className="hero shell" aria-labelledby="hero-title">
+        <div className="hero-kicker">
+          <span className="eyebrow">ENGINEERING × OWNERSHIP</span>
+          <span className="hero-location">
+            서울, 대한민국 <span aria-hidden="true">↗</span>
+          </span>
+        </div>
+        <div className="hero-main">
+          <h1 id="hero-title">
+            복잡한 요구를,
+            <br />
+            <span>작동하는 제품으로.</span>
+          </h1>
+          <span className="hero-asterisk" aria-hidden="true">
+            ✳
+          </span>
+        </div>
+        <div className="hero-bottom">
+          <div className="hero-person">
+            <div className="avatar">
               <Image
                 src="/images/face.JPG"
-                alt="바닷가에서 웃고 있는 이명필"
+                alt="이명필"
                 fill
-                priority
-                sizes="(max-width: 720px) 100vw, (max-width: 1100px) 46vw, 480px"
+                unoptimized
+                loading="eager"
               />
             </div>
-            <figcaption>
-              <span>이명필 · 서울</span>
-              <strong>2016년부터 개발자</strong>
-            </figcaption>
-          </figure>
-        </section>
-      </div>
-
-      <section className="stats shell" aria-label="핵심 경력 수치">
-        {stats.map((stat) => (
-          <div className="stat" key={stat.label}>
-            <strong>{stat.value}</strong>
-            <span>{stat.label}</span>
+            <div>
+              <strong>이명필</strong>
+              <span>풀스택 엔지니어 · 기술 PM</span>
+            </div>
           </div>
-        ))}
+          <div className="hero-intro">
+            <p>
+              AI 제품을 설계하고 핵심 기능을 구현합니다.
+              <br />
+              고객의 요구와 기술, 팀의 실행을 연결해
+              <br className="desktop-break" /> 실제 사용할 수 있는 제품을
+              만듭니다.
+            </p>
+            <div className="button-row">
+              <a href="#work" className="button button-primary">
+                프로젝트 살펴보기 <Arrow />
+              </a>
+              <a
+                href="/resume.pdf"
+                download="이명필-이력서.pdf"
+                className="button button-quiet"
+              >
+                이력서 다운로드 <span aria-hidden="true">↓</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <dl className="career-strip">
+          <div>
+            <dt>개발의 시작</dt>
+            <dd>
+              2016<span>년부터</span>
+            </dd>
+          </div>
+          <div>
+            <dt>수행 프로젝트</dt>
+            <dd>
+              20<span>개 이상</span>
+            </dd>
+          </div>
+          <div>
+            <dt>개발팀 기술 리딩</dt>
+            <dd>
+              10<span>명 규모</span>
+            </dd>
+          </div>
+          <div className="career-strip-note">
+            <dt>FOCUS</dt>
+            <dd>
+              AI 제품 개발
+              <br />
+              풀스택 아키텍처 · 기술 PM
+            </dd>
+          </div>
+        </dl>
       </section>
 
-      <section className="work shell" id="work" aria-labelledby="work-title">
+      <section
+        className="work-section shell"
+        id="work"
+        aria-labelledby="work-title"
+      >
         <div className="section-heading">
           <div>
-            <p className="eyebrow">대표 프로젝트</p>
-            <h2 id="work-title">기술을 실제 제품으로 만든 경험</h2>
+            <p className="eyebrow">SELECTED WORK / 2025 — 2026</p>
+            <h2 id="work-title">
+              문제에서 출발한
+              <br />세 가지 경험.
+            </h2>
           </div>
           <p>
-            프로젝트를 많이 나열하기보다, 기술적 판단과 실행 범위를 설명할
-            수 있는 사례를 선별했습니다.
+            AI 시스템의 기술 리딩부터 제품 출시,
+            <br />
+            고객과 개발팀을 연결하는 프로젝트 관리까지.
           </p>
         </div>
-
         <div className="project-list">
-          {projects.map((project) => (
-            <article className={`project-card project-card--${project.accent}`} key={project.slug}>
-              <div className="project-card__body">
-                <div className="project-card__topline">
-                  <span>{project.index}</span>
-                  <p className="project-card__eyebrow">{project.eyebrow}</p>
-                </div>
-                <h3>{project.title}</h3>
-                <p className="project-card__summary">{project.summary}</p>
-                <dl className="project-card__meta">
-                  <div><dt>기간</dt><dd>{project.period}</dd></div>
-                  <div><dt>역할</dt><dd>{project.role}</dd></div>
-                  <div><dt>팀</dt><dd>{project.team}</dd></div>
-                </dl>
-                <ul className="tag-list" aria-label="사용 기술">
-                  {project.tags.slice(0, 3).map((tag) => <li key={tag}>{tag}</li>)}
-                </ul>
-                <Link className="project-card__link" href={`/work/${project.slug}`}>
-                  프로젝트 자세히 보기 <span aria-hidden="true">↗</span>
-                </Link>
-              </div>
-              <div className="project-card__outcomes">
+          {caseStudies.map((project) => (
+            <article
+              className={`project-row project-row--${project.accent}`}
+              key={project.slug}
+            >
+              <Link
+                className="project-art-link"
+                href={`/work/${project.slug}`}
+                aria-label={`${project.title} 사례 보기`}
+              >
                 <ProjectVisual slug={project.slug} />
-                <div className="project-card__metrics">
-                {project.metrics.map((metric) => (
-                  <div key={metric.label}><strong>{metric.value}</strong><span>{metric.label}</span></div>
-                ))}
+                <span className="art-link-arrow">
+                  <Arrow diagonal />
+                </span>
+              </Link>
+              <div className="project-copy">
+                <div className="project-kicker">
+                  <span>
+                    {project.index} / {project.eyebrow}
+                  </span>
+                  <span>{project.period.split(" — ")[0]}</span>
+                </div>
+                <h3>
+                  <Link href={`/work/${project.slug}`}>{project.title}</Link>
+                </h3>
+                <p>{project.cardSummary}</p>
+                {project.publication && (
+                  <a
+                    className="project-publication"
+                    href={project.publication.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    회사 공식 솔루션 소개 <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+                <div className="project-result">
+                  <strong>{project.highlight}</strong>
+                  <span>{project.highlightLabel}</span>
+                </div>
+                <div className="project-copy-bottom">
+                  <span>{project.shortRole}</span>
+                  <Link className="text-link" href={`/work/${project.slug}`}>
+                    사례 읽기 <Arrow />
+                  </Link>
                 </div>
               </div>
             </article>
@@ -148,68 +179,169 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="capabilities" id="capabilities" aria-labelledby="capabilities-title">
-        <div className="shell capabilities__inner">
-          <div className="section-heading section-heading--light">
-            <div>
-              <p className="eyebrow">일하는 방식</p>
-              <h2 id="capabilities-title">개발에서 시작해, 책임의 범위를 넓혔습니다.</h2>
-            </div>
-            <p>
-              PM이 되기 위해 개발을 떠난 것이 아닙니다. 제품을 더 잘 만들기
-              위해 아키텍처, 팀, 고객과 납품까지 책임의 범위를 넓혔습니다.
+      <section
+        className="personal-section shell"
+        id="personal"
+        aria-labelledby="personal-title"
+      >
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">PERSONAL PROJECTS</p>
+            <h2 id="personal-title">
+              직접 만들고,
+              <br />
+              실제로 사용한 제품.
+            </h2>
+          </div>
+          <p>
+            브랜드 콘텐츠의 반복 작업을 줄이고,
+            <br />
+            매일 이어갈 수 있는 학습 경험을 만들었습니다.
+          </p>
+        </div>
+        <div className="personal-grid">
+          {personalProjects.map((project) => (
+            <article
+              className={`personal-card personal-card--${project.slug}`}
+              key={project.slug}
+            >
+              <Link
+                className="personal-art-link"
+                href={`/personal/${project.slug}`}
+                aria-label={`${project.title} 개인 프로젝트 보기`}
+              >
+                <PersonalProjectVisual project={project} preview />
+                <span className="personal-art-arrow">
+                  <Arrow diagonal />
+                </span>
+              </Link>
+              <div className="personal-card-copy">
+                <p className="eyebrow">{project.category}</p>
+                <h3>
+                  <Link href={`/personal/${project.slug}`}>
+                    {project.title}
+                  </Link>
+                </h3>
+                <p>{project.summary}</p>
+                <div className="personal-card-bottom">
+                  <span>{project.status}</span>
+                  <Link
+                    className="text-link"
+                    href={`/personal/${project.slug}`}
+                  >
+                    프로젝트 읽기 <Arrow />
+                  </Link>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="approach-section" aria-labelledby="approach-title">
+        <div className="shell approach-grid">
+          <div>
+            <p className="eyebrow">HOW I WORK</p>
+            <h2 id="approach-title">
+              설계와 실행 사이를
+              <br />
+              직접 연결합니다.
+            </h2>
+            <p className="section-description">
+              기술 선택의 이유를 설명하고,
+              <br />그 선택이 작동하는 곳까지 책임집니다.
             </p>
           </div>
-
-          <div className="capability-grid">
+          <div className="approach-list">
             <article>
               <span>01</span>
-              <h3>AI 제품 개발</h3>
-              <p>LLM과 에이전트를 데모가 아니라 실제 사용 가능한 제품 구조로 만듭니다.</p>
-              <ul><li>Multi-LLM 오케스트레이션</li><li>RAG · Document Insight</li><li>슈퍼바이저 · 서브 에이전트</li><li>MCP · 실시간 UX</li></ul>
+              <div>
+                <h3>문제를 실행 가능한 범위로</h3>
+                <p>
+                  고객의 요구를 정리하고, 팀이 구현할 기능과 우선순위로
+                  구체화합니다.
+                </p>
+                <Link href="/work/skt-ai-agent">
+                  요구사항 조정 사례 <Arrow />
+                </Link>
+              </div>
             </article>
             <article>
               <span>02</span>
-              <h3>풀스택 아키텍처</h3>
-              <p>화면부터 API, 인증, 데이터, 배포 환경까지 전체 흐름을 설계합니다.</p>
-              <ul><li>React · Vue · TypeScript</li><li>Python · FastAPI · Spring</li><li>Keycloak · Kafka · SSE</li><li>Kubernetes · Argo CD · Istio</li></ul>
+              <div>
+                <h3>아키텍처를 실제 제품으로</h3>
+                <p>
+                  화면, API, 인증, 결제, AI 실행의 경계를 설계하고 핵심 기능을
+                  구현합니다.
+                </p>
+                <Link href="/work/multi-llm">
+                  제품 출시 사례 <Arrow />
+                </Link>
+              </div>
             </article>
             <article>
               <span>03</span>
-              <h3>기술 프로젝트 관리</h3>
-              <p>모호한 요구를 실행 가능한 범위로 바꾸고 팀과 고객을 납품까지 연결합니다.</p>
-              <ul><li>요구사항 구조화</li><li>아키텍처 · WBS</li><li>리스크 · 품질 관리</li><li>고객 · 개발팀 조율</li></ul>
+              <div>
+                <h3>측정하고, 검증하고, 개선하기</h3>
+                <p>
+                  문서 처리 병목을 측정하고 대체 구현을 검증했습니다. 배포와
+                  리뷰도 팀의 반복 가능한 과정으로 만듭니다.
+                </p>
+                <Link href="/work/enterprise-ax">
+                  성능 개선 사례 <Arrow />
+                </Link>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section className="experience shell" id="experience" aria-labelledby="experience-title">
-        <div className="experience__intro">
-          <p className="eyebrow">경력</p>
-          <h2 id="experience-title">개발자에서 기술 리더로 확장했습니다.</h2>
-          <p>
-            최근 AI 프로젝트와 역할의 변화를 중심으로 주요 경력을 정리했습니다.
-          </p>
+      <section
+        className="about-section shell"
+        id="about"
+        aria-labelledby="about-title"
+      >
+        <div className="about-heading">
+          <p className="eyebrow">ABOUT & EXPERIENCE</p>
+          <h2 id="about-title">
+            만드는 사람에서,
+            <br />
+            함께 완성하는 사람으로.
+          </h2>
         </div>
-        <ol className="timeline">
-          <li><time>2024.07 — 현재</time><div><strong>포니링크</strong><span>AI 기술 PM · 기술 리더</span></div></li>
-          <li><time>2024.01 — 2024.06</time><div><strong>포니링크</strong><span>SK Passkey · 프리랜서 기술 리더</span></div></li>
-          <li><time>2022.04 — 2024.01</time><div><strong>더화이트커뮤니케이션</strong><span>시니어 프론트엔드 엔지니어</span></div></li>
-          <li><time>2018.04 — 2020.05</time><div><strong>마인드링크소프트</strong><span>공동창업자 · CTO</span></div></li>
-          <li><time>2016 — 2022</time><div><strong>제품·SI 개발 프로젝트</strong><span>풀스택 엔지니어</span></div></li>
-        </ol>
-      </section>
-
-      <section className="contact" aria-labelledby="contact-title">
-        <div className="shell contact__inner">
-          <p className="eyebrow">연락</p>
-          <h2 id="contact-title">기술과 제품을 함께<br />책임질 사람을 찾고 있다면.</h2>
-          <p>AI 제품 설계, 풀스택 개발, 개발팀 리딩 경험이 필요한 팀과 이야기하고 싶습니다.</p>
-          <a className="contact__link" href="mailto:zkwmdi30@gmail.com">
-            zkwmdi30@gmail.com <span aria-hidden="true">↗</span>
-          </a>
-          <div className="contact__footer"><span>이명필 · 풀스택 엔지니어 · 기술 PM</span><span>서울 · 2026</span></div>
+        <div className="about-grid">
+          <div className="about-bio">
+            <p>
+              2016년 Java 백엔드 개발로 시작했습니다. 웹 프론트엔드와 서비스
+              운영, 스타트업 창업을 거쳐 AI 제품의 설계와 기술 리딩으로 경험을
+              넓혔습니다.
+            </p>
+            <p>
+              직접 구현해 본 경험을 바탕으로 고객과 개발팀 사이에서 판단합니다.
+              필요한 순간에는 설계, 핵심 개발, 리뷰와 검증에 함께 참여합니다.
+            </p>
+            <Link className="text-link" href="/resume">
+              전체 경력과 이력서 <Arrow />
+            </Link>
+            <div className="skills-list">
+              {skills.map((skill) => (
+                <div key={skill.title}>
+                  <h3>{skill.title}</h3>
+                  <p>{skill.items}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <ol className="timeline">
+            {experience.slice(0, 6).map((item) => (
+              <li key={`${item.company}-${item.period}`}>
+                <span className="timeline-period">{item.period}</span>
+                <h3>{item.company}</h3>
+                <span className="timeline-role">{item.role}</span>
+                <p>{item.description}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
     </main>
