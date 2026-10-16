@@ -1235,7 +1235,7 @@ svg {
   border: 1px solid #d3dcd5;
   border-radius: 6px;
 }
-.architecture-evidence h3 {
+.architecture-evidence .evidence-heading {
   font-size: 21px;
   margin-top: 10px;
   font-weight: 600;
@@ -1252,8 +1252,31 @@ svg {
   grid-template-columns: 1fr;
 }
 .architecture-evidence--wide .evidence-points {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 22px;
+}
+.case-product-evidence {
+  margin-bottom: 42px;
+}
+.case-product-evidence .architecture-evidence {
+  margin-top: 0;
+}
+.project-product-preview {
+  background: #edf2f6;
+  justify-content: space-between;
+}
+.project-product-image {
+  margin-block: 28px;
+  overflow: hidden;
+  border: 1px solid #d4dce3;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 8px 24px #213d5710;
+}
+.project-product-image img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 .evidence-preview {
   display: block;
@@ -1302,7 +1325,7 @@ svg {
   color: var(--accent);
   font-size: 10px;
 }
-.evidence-points h4 {
+.evidence-points .evidence-point-heading {
   font-size: 14px;
   line-height: 1.6;
   margin: 7px 0;
@@ -2838,6 +2861,7 @@ body:has(.flowchart-dialog[open]) {
   font-size: 40px;
   margin: 24px 0 10px;
   letter-spacing: -0.045em;
+  text-wrap: balance;
 }
 .personal-showcase-copy > p:not(.eyebrow) {
   color: var(--muted);

@@ -94,6 +94,17 @@ export default async function WorkDetail({ params }: PageProps) {
           </a>
         </aside>
       )}
+      {study.productEvidence && (
+        <section
+          className="shell case-product-evidence"
+          aria-label="실제 서비스 화면"
+        >
+          <ArchitectureEvidence
+            evidence={study.productEvidence}
+            headingLevel={2}
+          />
+        </section>
+      )}
       <div className="shell case-overview">
         <ProjectVisual slug={study.slug} />
         <dl className="case-metrics">

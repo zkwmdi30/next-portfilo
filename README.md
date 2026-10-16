@@ -16,11 +16,12 @@ npm run dev
 - `src/content/case-studies.ts`: 홈 프로젝트 카드와 상세 페이지가 공유하는 사례 데이터
 - `src/content/personal-projects.ts`: LART 마케팅 자동화와 단어한끼의 홈 카드·개인 프로젝트 상세 원고
 - `src/content/profile.ts`: 소개, 전체 경력, 기술 목록
-- `src/app/resume/page.tsx`: 3쪽 이력서 원고. 웹과 PDF의 공통 원본
+- `src/app/resume/page.tsx`: 웹 이력서와 별도 PDF 미리보기 원고
 - `이력서/이명필-4.pdf`: 변경하지 않은 기존 이력서 원본
-- `public/resume.pdf`: 공개용 개정 이력서
+- `public/resume.pdf`: 2026.10.16 사용자가 제공한 `이명필_이력서.pdf` 원본. 홈과 이력서 페이지에서 다운로드하는 파일
 - `public/images/enterprise-ax-supervisor-flow.png`: 제공받은 슈퍼바이저 실행 흐름도 원본. 상세 사례에서 확대 보기·원본 열기 제공
 - `public/images/enterprise-ax-organization-integration.png`: 삼성제약 조직·사용자 연동 구조도 원본. ERP·그룹웨어·클라우디움의 연동 범위 설명
+- `public/images/enterprise-ax-chat-detail.png`: 사용자 제공 채팅 캡처의 답변·후속 질문 영역을 자른 이미지(원본 1765×1140, x=630/y=337/925×365). 대화 목록과 생성 중 답변은 잘라냈으며, 텍스트·UI를 새로 그리거나 수정하지 않았습니다. 홈 카드와 상세 상단에 사용합니다.
 - `public/images/multi-llm-official.webp`: 포니링크 공식 홈페이지 `Works → AIoT → Multi LLM` 공개 소개 자료(2026.10.16 확인). 원본은 보존하고 화면에서는 아키텍처·제품 UI 영역을 표시하며 출처 링크를 제공합니다. 공식 자료의 전체 플랫폼 기능을 개인 구현 범위로 간주하지 않습니다.
 - `public/images/personal/`: 사용자 제공 Instagram 화면과 PPT에서 추출한 단어한끼 앱 화면. Telegram 화면은 개인 대화 목록이 함께 있어 공개 파일로 복사하지 않았습니다. Instagram의 전체 게시물 수를 자동화 실적으로 환산하지 않았습니다.
 
@@ -30,14 +31,14 @@ npm run dev
 
 ## PDF 및 공유 이미지 다시 생성하기
 
-로컬 서버가 실행 중일 때 다음을 실행합니다. PDF는 `output/pdf/lee-myungpil-resume.pdf`와 `public/resume.pdf`에 저장되고, 홈 및 사례별 공유 이미지도 함께 생성합니다.
+로컬 서버가 실행 중일 때 다음을 실행합니다. 웹 이력서의 PDF 미리보기는 `output/pdf/lee-myungpil-resume.pdf`에 저장되고, 홈 및 사례별 공유 이미지도 함께 생성합니다. 사용자가 제공한 공개 이력서 `public/resume.pdf`는 덮어쓰지 않습니다.
 
 ```sh
 npx playwright install chromium
 npm run assets:generate
 ```
 
-다른 서버를 사용하면 `PREVIEW_URL`을 지정합니다. 출력 PDF는 3쪽이어야 하며 페이지 분할과 한글을 확인한 후 배포합니다. `output/pdf`는 산출물 보관용이고 실제 다운로드는 `public/resume.pdf`를 사용합니다.
+다른 서버를 사용하면 `PREVIEW_URL`을 지정합니다. 생성된 미리보기는 3쪽이어야 하며 페이지 분할과 한글을 확인합니다. 실제 다운로드 파일을 교체할 때는 확정된 PDF를 `public/resume.pdf`에 복사합니다.
 
 PDF를 변경하지 않고 공유 이미지 6개만 갱신할 때는 `npm run assets:generate -- --social-only`를 사용합니다.
 

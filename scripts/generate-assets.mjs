@@ -1,5 +1,5 @@
 import { chromium } from "playwright";
-import { readFile, mkdir, copyFile } from "node:fs/promises";
+import { readFile, mkdir } from "node:fs/promises";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { caseStudies } from "../src/content/case-studies.ts";
@@ -45,7 +45,6 @@ try {
       preferCSSPageSize: true,
       tagged: true,
     });
-    await copyFile(pdf, resolve(root, "public/resume.pdf"));
   }
 
   const font = (
@@ -87,7 +86,7 @@ try {
   console.log(
     socialOnly
       ? `Generated ${cards.length} social images.`
-      : `Generated resume and ${cards.length} social images. Verify the PDF page count after generation.`,
+      : `Generated resume preview and ${cards.length} social images. The public resume PDF was preserved. Verify the preview page count after generation.`,
   );
 } finally {
   await browser.close();

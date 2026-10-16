@@ -83,6 +83,12 @@ test("architecture evidence opens, zooms and restores keyboard focus", async ({
   for (const evidence of [
     {
       slug: "enterprise-ax",
+      label: "계열사 A.X 채팅 화면",
+      title: "답변을 확인하고, 다음 질문을 이어가는 실제 채팅 화면",
+      file: "enterprise-ax-chat-detail.png",
+    },
+    {
+      slug: "enterprise-ax",
       label: "슈퍼바이저 흐름도",
       title: "실제 슈퍼바이저 실행 흐름",
       file: "enterprise-ax-supervisor-flow.png",

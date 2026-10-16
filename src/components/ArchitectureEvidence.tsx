@@ -46,9 +46,13 @@ function EvidenceImage({
 
 export default function ArchitectureEvidence({
   evidence,
+  headingLevel = 3,
 }: {
   evidence: CaseEvidence;
+  headingLevel?: 2 | 3;
 }) {
+  const Heading = headingLevel === 2 ? "h2" : "h3";
+  const PointHeading = headingLevel === 2 ? "h3" : "h4";
   const titleId = useId();
   const dialog = useRef<HTMLDialogElement>(null);
   const viewport = useRef<HTMLDivElement>(null);
@@ -69,7 +73,7 @@ export default function ArchitectureEvidence({
     >
       <figcaption>
         <p className="eyebrow">{evidence.eyebrow}</p>
-        <h3>{evidence.title}</h3>
+        <Heading className="evidence-heading">{evidence.title}</Heading>
       </figcaption>
       <div className="evidence-layout">
         <button
@@ -86,7 +90,9 @@ export default function ArchitectureEvidence({
           {evidence.points.map((point, index) => (
             <li key={point.title}>
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <h4>{point.title}</h4>
+              <PointHeading className="evidence-point-heading">
+                {point.title}
+              </PointHeading>
               <p>{point.body}</p>
             </li>
           ))}

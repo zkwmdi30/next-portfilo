@@ -42,6 +42,7 @@ export type CaseStudy = {
   team: string;
   scale: string;
   publication?: PublicSource;
+  productEvidence?: CaseEvidence;
   tags: string[];
   metrics: Array<{ value: string; label: string; detail?: string }>;
   context: string[];
@@ -92,6 +93,28 @@ export const caseStudies: CaseStudy[] = [
     role: "기술 리더",
     team: "전체 16명 · 개발자 10명",
     scale: "약 20억 원",
+    productEvidence: {
+      src: "/images/enterprise-ax-chat-detail.png",
+      width: 925,
+      height: 365,
+      title: "답변을 확인하고, 다음 질문을 이어가는 실제 채팅 화면",
+      label: "계열사 A.X 채팅 화면",
+      eyebrow: "PRODUCT / AIME CHAT",
+      layout: "wide",
+      alt: "AIME 채팅에서 합성 데이터 평가 흐름을 정리한 AI 답변과 가장 중요한 내용을 묻는 사용자의 후속 질문",
+      caption:
+        "실제 서비스 캡처에서 답변과 후속 질문 영역을 발췌했습니다. 화면 속 텍스트와 UI는 그대로 유지했습니다.",
+      points: [
+        {
+          title: "구조화된 답변 확인",
+          body: "제목·목록·강조를 사용해 답변의 판단 기준과 결론을 읽을 수 있는 채팅 인터페이스입니다.",
+        },
+        {
+          title: "같은 대화에서 이어지는 질문",
+          body: "앞선 답변을 확인하고 중요한 내용을 다시 묻는 장면입니다. 아래의 슈퍼바이저 실행 구조가 연결되는 사용자 화면을 보여줍니다.",
+        },
+      ],
+    },
     tags: [
       "LangGraph",
       "FastAPI",

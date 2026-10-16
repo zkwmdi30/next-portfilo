@@ -49,6 +49,10 @@ export const personalProjects: PersonalProject[] = [
         caption: "LART 운영 계정의 실제 콘텐츠 피드 · 제공받은 2026.10.16 화면",
       },
     ],
+    external: {
+      url: "https://www.instagram.com/lart_luminarie/",
+      label: "Instagram에서 보기",
+    },
     context:
       "브랜드 계정을 꾸준히 운영하려면 콘텐츠를 만들고, 수정 의견을 반영하고, 게시하는 작업을 반복해야 합니다. 이 과정을 하나의 흐름으로 연결하되, 브랜드에 맞는지 판단하고 공개를 승인하는 단계는 사람이 맡도록 구성했습니다.",
     experienceTitle: "Telegram에서 검수하고, 승인한 콘텐츠를 게시합니다.",
@@ -111,8 +115,9 @@ export const personalProjects: PersonalProject[] = [
     role: "앱 UX 설계 · Flutter 개발 · API 연동 · 배포",
     status: "App Store 출시",
     tags: ["Flutter", "Dart", "GetX", "Hive", "TTS", "Spring Boot"],
-    highlight: "10문제",
-    highlightLabel: "한 번에 마칠 수 있는 학습 단위",
+    highlight: "한 역씩 이어가는 중국어 학습",
+    highlightLabel:
+      "학습 노선에서 다음 목표를 확인하고, 퀴즈와 발음 듣기로 단어를 익히고, 틀린 단어는 복습으로 이어갑니다.",
     images: [
       {
         src: "/images/personal/chinese-learning-route.png",

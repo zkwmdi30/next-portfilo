@@ -137,7 +137,32 @@ export default function Home() {
                 href={`/work/${project.slug}`}
                 aria-label={`${project.title} 사례 보기`}
               >
-                <ProjectVisual slug={project.slug} />
+                {project.productEvidence ? (
+                  <div
+                    className="project-visual project-product-preview"
+                    aria-hidden="true"
+                  >
+                    <div className="visual-heading">
+                      <span>{project.index} / AIME · ACTUAL PRODUCT</span>
+                      <span className="visual-dot" />
+                    </div>
+                    <div className="project-product-image">
+                      <Image
+                        src={project.productEvidence.src}
+                        width={project.productEvidence.width}
+                        height={project.productEvidence.height}
+                        alt=""
+                        unoptimized
+                      />
+                    </div>
+                    <div className="visual-caption">
+                      <span>계열사 AI 업무 플랫폼</span>
+                      <span>실제 채팅 화면 ↗</span>
+                    </div>
+                  </div>
+                ) : (
+                  <ProjectVisual slug={project.slug} />
+                )}
                 <span className="art-link-arrow">
                   <Arrow diagonal />
                 </span>
